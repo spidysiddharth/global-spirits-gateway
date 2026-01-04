@@ -21,7 +21,7 @@ const contactInfo = [
   {
     icon: Building2,
     title: "Headquarters",
-    details: ["Premium Spirits Pte. Ltd.", "Singapore Business Hub", "1 Raffles Place, #50-01"],
+    details: ["Zilaq Global Pte. Ltd.", "Singapore Business Hub", "1 Raffles Place, #50-01"],
   },
   {
     icon: Phone,
