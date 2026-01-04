@@ -1,13 +1,37 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState, useEffect } from "react";
+import AgeVerification from "@/components/AgeVerification";
+import Navbar from "@/components/Navbar";
+import HeroSection from "@/components/HeroSection";
+import AboutPreview from "@/components/AboutPreview";
+import PortfolioPreview from "@/components/PortfolioPreview";
+import GlobalReach from "@/components/GlobalReach";
+import Testimonials from "@/components/Testimonials";
+import Footer from "@/components/Footer";
 
 const Index = () => {
+  const [isVerified, setIsVerified] = useState(false);
+
+  useEffect(() => {
+    const verified = localStorage.getItem("ageVerified");
+    if (verified === "true") {
+      setIsVerified(true);
+    }
+  }, []);
+
+  if (!isVerified) {
+    return <AgeVerification onVerified={() => setIsVerified(true)} />;
+  }
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
-    </div>
+    <main className="min-h-screen bg-background">
+      <Navbar />
+      <HeroSection />
+      <AboutPreview />
+      <PortfolioPreview />
+      <GlobalReach />
+      <Testimonials />
+      <Footer />
+    </main>
   );
 };
 
