@@ -89,7 +89,7 @@ const AgeVerification = ({ onVerified }: AgeVerificationProps) => {
               transition={{ delay: 0.6 }}
               className="text-primary font-serif italic text-lg mb-8"
             >
-              Premium Spirits Collection
+              Zilaq Global
             </motion.p>
 
             {/* Age verification form */}

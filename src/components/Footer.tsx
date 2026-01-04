@@ -11,7 +11,7 @@ const Footer = () => {
             <Link to="/" className="flex items-center gap-3 mb-4">
               <Wine className="w-8 h-8 text-primary" />
               <span className="font-serif text-xl text-foreground tracking-wide">
-                Premium<span className="text-primary">Spirits</span>
+                Zilaq<span className="text-primary">Global</span>
               </span>
             </Link>
             <p className="text-muted-foreground text-sm max-w-md mb-4">
@@ -73,7 +73,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-primary/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-muted-foreground text-xs">
-            © {new Date().getFullYear()} Premium Spirits Pte. Ltd. All rights reserved.
+            © {new Date().getFullYear()} Zilaq Global Pte. Ltd. All rights reserved.
           </p>
           <p className="text-muted-foreground text-xs italic">
             Please enjoy responsibly. Must be of legal drinking age.

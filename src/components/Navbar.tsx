@@ -45,7 +45,7 @@ const Navbar = () => {
           <Link to="/" className="flex items-center gap-3 group">
             <Wine className="w-8 h-8 text-primary group-hover:scale-110 transition-transform" />
             <span className="font-serif text-xl text-foreground tracking-wide">
-              Premium<span className="text-primary">Spirits</span>
+              Zilaq<span className="text-primary">Global</span>
             </span>
           </Link>
 
