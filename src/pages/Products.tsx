@@ -10,7 +10,7 @@ import arthausW from "@/assets/arthaus-w.png";
 import heroBg from "@/assets/hero-bg.jpg";
 import officerW from "@/assets/officers-w.png";
 import sterlingW from "@/assets/sterling-w.png";
-import iconicW from "@/assets/iconic-w.png";
+import iconicW from "@/assets/iconic-W.png";
 import iconicwinterW from "@/assets/iconicwinter-w.png";
 import XWW from "@/assets/X&W-w.png";
 import SrishtiW from "@/assets/srishti-w.png";
