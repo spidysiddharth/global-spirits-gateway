@@ -16,12 +16,13 @@ import {
   Building2,
 } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
+import Translate from "@/components/Translate";
 
 const contactInfo = [
   {
     icon: Building2,
     title: "Headquarters",
-    details: ["Zilaq Global Pte. Ltd.", "Singapore Business Hub", "1 Raffles Place, #50-01"],
+    details: ["Zeliq Pte. Ltd.", "Singapore Business Hub", "1 Raffles Place, #50-01"],
   },
   {
     icon: Phone,
@@ -62,16 +63,39 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    try {
+      const response = await fetch("http://localhost:3001/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-    toast({
-      title: "Message Sent",
-      description: "Thank you for your inquiry. We'll get back to you shortly.",
-    });
+      const data = await response.json();
 
-    setFormData({ name: "", email: "", company: "", phone: "", message: "" });
-    setIsSubmitting(false);
+      if (response.ok && data.success) {
+        toast({
+          title: "Message Sent",
+          description: "Thank you for your inquiry. We'll get back to you shortly.",
+        });
+        setFormData({ name: "", email: "", company: "", phone: "", message: "" });
+      } else {
+        toast({
+          title: "Error",
+          description: data.message || "Failed to send message. Please try again.",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -93,10 +117,10 @@ const Contact = () => {
             className="max-w-3xl mx-auto text-center"
           >
             <h1 className="font-serif text-4xl md:text-6xl text-foreground mb-6">
-              Contact <span className="italic text-primary">Us</span>
+              <Translate>Contact</Translate> <span className="italic text-primary"><Translate>Us</Translate></span>
             </h1>
             <p className="text-xl text-muted-foreground">
-              Let's discuss how we can bring premium spirits to your market
+              <Translate>Let's discuss how we can bring premium spirits to your market</Translate>
             </p>
           </motion.div>
         </div>
@@ -114,14 +138,14 @@ const Contact = () => {
               viewport={{ once: true }}
             >
               <h2 className="font-serif text-2xl text-foreground mb-6">
-                Send Us a Message
+                <Translate>Send Us a Message</Translate>
               </h2>
               
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
                     <label className="text-sm text-muted-foreground mb-2 block">
-                      Full Name *
+                      <Translate>Full Name</Translate> *
                     </label>
                     <Input
                       required
@@ -135,7 +159,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <label className="text-sm text-muted-foreground mb-2 block">
-                      Email *
+                      <Translate>Email</Translate> *
                     </label>
                     <Input
                       required
@@ -153,7 +177,7 @@ const Contact = () => {
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
                     <label className="text-sm text-muted-foreground mb-2 block">
-                      Company
+                      <Translate>Company</Translate>
                     </label>
                     <Input
                       value={formData.company}
@@ -166,7 +190,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <label className="text-sm text-muted-foreground mb-2 block">
-                      Phone
+                      <Translate>Phone</Translate>
                     </label>
                     <Input
                       value={formData.phone}
@@ -181,7 +205,7 @@ const Contact = () => {
 
                 <div>
                   <label className="text-sm text-muted-foreground mb-2 block">
-                    Message *
+                    <Translate>Message</Translate> *
                   </label>
                   <Textarea
                     required
@@ -202,11 +226,11 @@ const Contact = () => {
                   className="w-full sm:w-auto"
                 >
                   {isSubmitting ? (
-                    "Sending..."
+                    <Translate>Sending...</Translate>
                   ) : (
                     <>
                       <Send className="w-4 h-4 mr-2" />
-                      Send Message
+                      <Translate>Send Message</Translate>
                     </>
                   )}
                 </Button>
@@ -221,7 +245,7 @@ const Contact = () => {
               viewport={{ once: true }}
             >
               <h2 className="font-serif text-2xl text-foreground mb-6">
-                Get in Touch
+                <Translate>Get in Touch</Translate>
               </h2>
 
               <div className="space-y-8 mb-12">
@@ -232,7 +256,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <h4 className="font-serif text-foreground mb-1">
-                        {item.title}
+                        <Translate>{item.title}</Translate>
                       </h4>
                       {item.details.map((detail, i) => (
                         <p key={i} className="text-muted-foreground text-sm">
@@ -248,7 +272,7 @@ const Contact = () => {
               <div className="glass-card p-6">
                 <h3 className="font-serif text-lg text-foreground mb-4 flex items-center gap-2">
                   <MapPin className="w-5 h-5 text-primary" />
-                  Global Offices
+                  <Translate>Global Offices</Translate>
                 </h3>
                 <div className="grid grid-cols-2 gap-4">
                   {offices.map((office) => (
@@ -267,7 +291,7 @@ const Contact = () => {
 
               {/* Social */}
               <div className="mt-8">
-                <p className="text-muted-foreground text-sm mb-3">Connect with us</p>
+                <p className="text-muted-foreground text-sm mb-3"><Translate>Connect with us</Translate></p>
                 <a
                   href="https://linkedin.com"
                   target="_blank"
@@ -275,7 +299,7 @@ const Contact = () => {
                   className="inline-flex items-center gap-2 text-primary hover:text-gold-light transition-colors"
                 >
                   <Linkedin className="w-5 h-5" />
-                  Follow on LinkedIn
+                  <Translate>Follow on LinkedIn</Translate>
                 </a>
               </div>
             </motion.div>

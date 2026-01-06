@@ -4,25 +4,36 @@ import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import winesImg from "@/assets/wines.jpg";
-import spiritsImg from "@/assets/spirits.jpg";
-import rareImg from "@/assets/rare.jpg";
+import whiskeyW from "@/assets/whisky.png";
+import ginG from "@/assets/gin.jpg";
+import brandyB from "@/assets/brandy.jpg";
+import vodkaV from "@/assets/vodka.jpg";
+import rumR from "@/assets/rum2.jpg";
+import Translate from "./Translate";
 
 const categories = [
   {
-    title: "Fine Wines",
+    title: "Whiskey",
     description: "Exceptional vintages from world-renowned vineyards",
-    image: winesImg,
+    image: whiskeyW,
   },
   {
-    title: "Luxury Spirits",
+    title: "Gin",
     description: "Premium whisky, vodka, gin & cognac collections",
-    image: spiritsImg,
+    image: ginG,
   },
   {
-    title: "Rare & Limited Editions",
+    title: "Brandy",
     description: "Exclusive collector's items and rare finds",
-    image: rareImg,
+    image: brandyB,
+  },{
+    title: "Rum",
+    description: "Exclusive collector's items and rare finds",
+    image: rumR,
+  },{
+    title: "Vodka",
+    description: "Exclusive collector's items and rare finds",
+    image: vodkaV,
   },
 ];
 
@@ -41,10 +52,10 @@ const PortfolioPreview = () => {
           className="text-center mb-16"
         >
           <h2 className="font-serif text-3xl md:text-5xl text-foreground mb-4">
-            Our <span className="italic text-primary">Portfolio</span>
+            <Translate>Our</Translate> <span className="italic text-primary"><Translate>Portfolio</Translate></span>
           </h2>
           <p className="text-primary font-serif italic text-lg">
-            Exceptional Brands. Exquisite Selection.
+            <Translate>Exceptional Brands. Exquisite Selection.</Translate>
           </p>
         </motion.div>
 
@@ -68,10 +79,10 @@ const PortfolioPreview = () => {
               {/* Content */}
               <div className="absolute bottom-0 left-0 right-0 p-6">
                 <h3 className="font-serif text-xl text-foreground mb-2">
-                  {category.title}
+                  <Translate>{category.title}</Translate>
                 </h3>
                 <p className="text-muted-foreground text-sm">
-                  {category.description}
+                  <Translate>{category.description}</Translate>
                 </p>
               </div>
 
@@ -90,7 +101,7 @@ const PortfolioPreview = () => {
         >
           <Link to="/products">
             <Button variant="hero" size="lg" className="group">
-              Explore Our Portfolio
+              <Translate>Explore Our Portfolio</Translate>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Button>
           </Link>

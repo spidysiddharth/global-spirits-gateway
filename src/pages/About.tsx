@@ -2,8 +2,9 @@ import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Globe, Award, Truck, Shield, Users, TrendingUp, Target, Star } from "lucide-react";
-import aboutBg from "@/assets/about-bg.jpg";
+import aboutBg from "@/assets/zeliq-logo.jpeg";
 import heroBg from "@/assets/hero-bg.jpg";
+import Translate from "@/components/Translate";
 
 const values = [
   {
@@ -71,10 +72,10 @@ const About = () => {
             className="max-w-3xl mx-auto text-center"
           >
             <h1 className="font-serif text-4xl md:text-6xl text-foreground mb-6">
-              About <span className="italic text-primary">Us</span>
+              <Translate>About</Translate> <span className="italic text-primary"><Translate>Us</Translate></span>
             </h1>
             <p className="text-xl text-muted-foreground">
-              Singapore's Gateway to the World's Finest Spirits
+              <Translate>Singapore's Gateway to the World's Finest Spirits</Translate>
             </p>
           </motion.div>
         </div>
@@ -91,27 +92,21 @@ const About = () => {
               viewport={{ once: true }}
             >
               <span className="text-primary text-sm tracking-widest uppercase mb-4 block">
-                Our Story
+                <Translate>Our Story</Translate>
               </span>
               <h2 className="font-serif text-3xl md:text-4xl text-foreground leading-tight mb-6">
-                Crafting Excellence.{" "}
-                <span className="italic text-primary">Distributing Prestige.</span>
+                <Translate>Crafting Excellence.</Translate>{" "}
+                <span className="italic text-primary"><Translate>Distributing Prestige.</Translate></span>
               </h2>
               <div className="space-y-4 text-muted-foreground">
                 <p>
-                  Founded in Singapore, we have established ourselves as the premier gateway 
-                  connecting world-class spirits and wines to the rapidly growing markets of 
-                  Asia-Pacific, Middle East, and Africa.
+                  <Translate>Founded in Singapore, we have established ourselves as the premier gateway connecting world-class spirits and wines to the rapidly growing markets of Asia-Pacific, Middle East, and Africa.</Translate>
                 </p>
                 <p>
-                  Our strategic location in Singapore positions us as the ideal logistics hub, 
-                  enabling seamless distribution to luxury hotels, duty-free shops, and high-end 
-                  retailers across emerging markets.
+                  <Translate>Our strategic location in Singapore positions us as the ideal logistics hub, enabling seamless distribution to luxury hotels, duty-free shops, and high-end retailers across emerging markets.</Translate>
                 </p>
                 <p>
-                  With decades of combined experience in the premium spirits industry, our team 
-                  brings unparalleled expertise in brand positioning, market development, and 
-                  regulatory compliance.
+                  <Translate>With decades of combined experience in the premium spirits industry, our team brings unparalleled expertise in brand positioning, market development, and regulatory compliance.</Translate>
                 </p>
               </div>
             </motion.div>
@@ -148,10 +143,10 @@ const About = () => {
             className="text-center mb-16"
           >
             <h2 className="font-serif text-3xl md:text-4xl text-foreground mb-4">
-              Our <span className="italic text-primary">Values</span>
+              <Translate>Our</Translate> <span className="italic text-primary"><Translate>Values</Translate></span>
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              The principles that guide everything we do
+              <Translate>The principles that guide everything we do</Translate>
             </p>
           </motion.div>
 
@@ -169,10 +164,10 @@ const About = () => {
                   <value.icon className="w-7 h-7 text-primary" />
                 </div>
                 <h3 className="font-serif text-xl text-foreground mb-3">
-                  {value.title}
+                  <Translate>{value.title}</Translate>
                 </h3>
                 <p className="text-muted-foreground text-sm">
-                  {value.description}
+                  <Translate>{value.description}</Translate>
                 </p>
               </motion.div>
             ))}
@@ -191,10 +186,10 @@ const About = () => {
             className="text-center mb-16"
           >
             <h2 className="font-serif text-3xl md:text-4xl text-foreground mb-4">
-              Our <span className="italic text-primary">Expertise</span>
+              <Translate>Our</Translate> <span className="italic text-primary"><Translate>Expertise</Translate></span>
             </h2>
             <p className="text-primary font-serif italic text-lg">
-              Built on Knowledge. Driven by Passion.
+              <Translate>Built on Knowledge. Driven by Passion.</Translate>
             </p>
           </motion.div>
 
@@ -213,10 +208,10 @@ const About = () => {
                 </div>
                 <div>
                   <h4 className="font-serif text-lg text-foreground mb-2">
-                    {item.title}
+                    <Translate>{item.title}</Translate>
                   </h4>
                   <p className="text-muted-foreground text-sm">
-                    {item.description}
+                    <Translate>{item.description}</Translate>
                   </p>
                 </div>
               </motion.div>

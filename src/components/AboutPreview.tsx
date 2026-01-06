@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Award, Globe, Truck, Shield } from "lucide-react";
 import aboutBg from "@/assets/about-bg.jpg";
+import Translate from "./Translate";
 
 const features = [
   {
@@ -47,17 +48,14 @@ const AboutPreview = () => {
             transition={{ duration: 0.8 }}
           >
             <span className="text-primary text-sm tracking-widest uppercase mb-4 block">
-              About Us
+              <Translate>About Us</Translate>
             </span>
             <h2 className="font-serif text-3xl md:text-5xl text-foreground leading-tight mb-6">
-              Crafting Excellence.{" "}
-              <span className="italic text-primary">Distributing Prestige.</span>
+              <Translate>Crafting Excellence.</Translate>{" "}
+              <span className="italic text-primary"><Translate>Distributing Prestige.</Translate></span>
             </h2>
             <p className="text-muted-foreground text-lg mb-8">
-              We are a leading importer and distributor of the world's finest wines 
-              and spirits, dedicated to delivering unparalleled quality and service. 
-              With an exclusive selection of renowned brands, we bring the best of 
-              the world to your business.
+              <Translate>We are a leading importer and distributor of the world's finest wines and spirits, dedicated to delivering unparalleled quality and service. With an exclusive selection of renowned brands, we bring the best of the world to your business.</Translate>
             </p>
 
             {/* Features grid */}
@@ -74,8 +72,8 @@ const AboutPreview = () => {
                     <feature.icon className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <h4 className="font-serif text-foreground mb-1">{feature.title}</h4>
-                    <p className="text-muted-foreground text-sm">{feature.description}</p>
+                    <h4 className="font-serif text-foreground mb-1"><Translate>{feature.title}</Translate></h4>
+                    <p className="text-muted-foreground text-sm"><Translate>{feature.description}</Translate></p>
                   </div>
                 </motion.div>
               ))}
@@ -83,7 +81,7 @@ const AboutPreview = () => {
 
             <Link to="/about">
               <Button variant="hero" className="group">
-                Learn More About Us
+                <Translate>Learn More About Us</Translate>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>

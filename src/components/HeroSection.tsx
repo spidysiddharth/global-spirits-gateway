@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
+import Translate from "./Translate";
 
 const HeroSection = () => {
   return (
@@ -31,7 +32,7 @@ const HeroSection = () => {
           >
             <span className="inline-flex items-center gap-2 text-primary text-sm tracking-widest uppercase mb-6">
               <Sparkles className="w-4 h-4" />
-              Singapore's Premier Distributor
+              <Translate>Singapore's Premier Distributor</Translate>
             </span>
           </motion.div>
 
@@ -41,10 +42,10 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="font-serif text-4xl md:text-6xl lg:text-7xl text-foreground leading-tight mb-6"
           >
-            Delivering{" "}
-            <span className="italic text-primary">Distinction</span>
+            <Translate>Delivering</Translate>{" "}
+            <span className="italic text-primary"><Translate>Distinction</Translate></span>
             <br />
-            in Every Drop
+            <Translate>in Every Drop</Translate>
           </motion.h1>
 
           <motion.p
@@ -53,8 +54,7 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="text-lg md:text-xl text-muted-foreground max-w-xl mb-8"
           >
-            Your trusted partner in premium wines, spirits, and luxury liquor brands. 
-            Bridging the world's finest spirits to emerging markets.
+            <Translate>Your trusted partner in premium wines, spirits, and luxury liquor brands. Bridging the world's finest spirits to emerging markets.</Translate>
           </motion.p>
 
           <motion.div
@@ -65,13 +65,13 @@ const HeroSection = () => {
           >
             <Link to="/products">
               <Button variant="hero" size="xl" className="group">
-                Explore Our Portfolio
+                <Translate>Explore Our Portfolio</Translate>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
             <Link to="/contact">
               <Button variant="goldOutline" size="xl">
-                Partner With Us
+                <Translate>Partner With Us</Translate>
               </Button>
             </Link>
           </motion.div>
@@ -84,13 +84,13 @@ const HeroSection = () => {
             className="mt-16 pt-8 border-t border-primary/20"
           >
             <p className="text-muted-foreground text-sm tracking-widest uppercase mb-4">
-              Distribution Network
+              <Translate>Distribution Network</Translate>
             </p>
             <div className="flex flex-wrap gap-6 text-foreground">
               {["Singapore", "Asia-Pacific", "Middle East", "Africa"].map((region) => (
                 <span key={region} className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-                  {region}
+                  <Translate>{region}</Translate>
                 </span>
               ))}
             </div>
@@ -99,7 +99,7 @@ const HeroSection = () => {
       </div>
 
       {/* Scroll indicator */}
-      <motion.div
+      {/* <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5 }}
@@ -112,7 +112,7 @@ const HeroSection = () => {
             className="w-1.5 h-3 bg-primary rounded-full mt-2"
           />
         </div>
-      </motion.div>
+      </motion.div> */}
     </section>
   );
 };

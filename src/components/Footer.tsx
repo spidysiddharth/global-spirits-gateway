@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
-import { Wine, MapPin, Linkedin, Mail } from "lucide-react";
+import { MapPin, Linkedin, Mail, Phone, MessageCircle } from "lucide-react";
+import zeliqLogo from "@/assets/zeliq-logo.jpeg";
+import Translate from "./Translate";
 
 const Footer = () => {
   return (
@@ -9,15 +11,13 @@ const Footer = () => {
           {/* Brand */}
           <div className="md:col-span-2">
             <Link to="/" className="flex items-center gap-3 mb-4">
-              <Wine className="w-8 h-8 text-primary" />
+              <img src={zeliqLogo} alt="Zeliq" className="w-10 h-10 object-contain" />
               <span className="font-serif text-xl text-foreground tracking-wide">
-                Zilaq<span className="text-primary">Global</span>
+                Zeliq
               </span>
             </Link>
             <p className="text-muted-foreground text-sm max-w-md mb-4">
-              Singapore's premier distributor of world-class wines and spirits. 
-              Bridging global luxury brands to emerging markets across Asia-Pacific, 
-              Middle East, and Africa.
+              <Translate>Singapore's premier distributor of world-class wines and spirits. Bridging global luxury brands to emerging markets across Asia-Pacific, Middle East, and Africa.</Translate>
             </p>
             <div className="flex items-center gap-2 text-muted-foreground text-sm">
               <MapPin className="w-4 h-4 text-primary" />
@@ -27,7 +27,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-serif text-lg text-foreground mb-4">Quick Links</h4>
+            <h4 className="font-serif text-lg text-foreground mb-4"><Translate>Quick Links</Translate></h4>
             <ul className="space-y-2">
               {["Home", "About Us", "Products", "Contact"].map((link) => (
                 <li key={link}>
@@ -35,7 +35,7 @@ const Footer = () => {
                     to={link === "Home" ? "/" : `/${link.toLowerCase().replace(" ", "-")}`}
                     className="text-muted-foreground hover:text-primary text-sm transition-colors"
                   >
-                    {link}
+                    <Translate>{link}</Translate>
                   </Link>
                 </li>
               ))}
@@ -44,7 +44,7 @@ const Footer = () => {
 
           {/* Contact */}
           <div>
-            <h4 className="font-serif text-lg text-foreground mb-4">Connect</h4>
+            <h4 className="font-serif text-lg text-foreground mb-4"><Translate>Connect</Translate></h4>
             <ul className="space-y-3">
               <li>
                 <a
@@ -53,6 +53,26 @@ const Footer = () => {
                 >
                   <Mail className="w-4 h-4" />
                   info@premiumspirits.sg
+                </a>
+              </li>
+              <li>
+                <a
+                  href="tel:+971552251680"
+                  className="flex items-center gap-2 text-muted-foreground hover:text-primary text-sm transition-colors"
+                >
+                  <Phone className="w-4 h-4" />
+                  +971 552 251 680
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://wa.me/971552251680?text=Hello%2C%20I'm%20interested%20in%20learning%20more%20about%20your%20premium%20spirits%20portfolio."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-muted-foreground hover:text-primary text-sm transition-colors"
+                >
+                  <MessageCircle className="w-4 h-4" />
+                  WhatsApp
                 </a>
               </li>
               <li>
@@ -73,10 +93,10 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-primary/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-muted-foreground text-xs">
-            © {new Date().getFullYear()} Zilaq Global Pte. Ltd. All rights reserved.
+            © {new Date().getFullYear()} Zeliq Pte. Ltd. <Translate>All rights reserved.</Translate>
           </p>
           <p className="text-muted-foreground text-xs italic">
-            Please enjoy responsibly. Must be of legal drinking age.
+            <Translate>Please enjoy responsibly. Must be of legal drinking age.</Translate>
           </p>
         </div>
       </div>

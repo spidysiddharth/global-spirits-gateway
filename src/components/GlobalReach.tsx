@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Globe, Truck, FileCheck, Handshake } from "lucide-react";
+import Translate from "./Translate";
 
 const locations = [
   { name: "Singapore (HQ)", x: 72, y: 58 },
@@ -53,14 +54,13 @@ const GlobalReach = () => {
           className="text-center mb-16"
         >
           <h2 className="font-serif text-3xl md:text-5xl text-foreground mb-4">
-            Our Global <span className="italic text-primary">Reach</span>
+            <Translate>Our Global</Translate> <span className="italic text-primary"><Translate>Reach</Translate></span>
           </h2>
           <p className="text-primary font-serif italic text-lg mb-4">
-            Connecting World-Class Brands to Premium Markets
+            <Translate>Connecting World-Class Brands to Premium Markets</Translate>
           </p>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            With an extensive distribution network and strong relationships across key markets, 
-            we bridge the gap between renowned international producers and discerning buyers.
+            <Translate>With an extensive distribution network and strong relationships across key markets, we bridge the gap between renowned international producers and discerning buyers.</Translate>
           </p>
         </motion.div>
 
@@ -139,10 +139,10 @@ const GlobalReach = () => {
             >
               <capability.icon className="w-8 h-8 text-primary mb-4" />
               <h4 className="font-serif text-lg text-foreground mb-2">
-                {capability.title}
+                <Translate>{capability.title}</Translate>
               </h4>
               <p className="text-muted-foreground text-sm">
-                {capability.description}
+                <Translate>{capability.description}</Translate>
               </p>
             </motion.div>
           ))}

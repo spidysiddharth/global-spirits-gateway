@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Star, Quote } from "lucide-react";
+import Translate from "./Translate";
 
 const testimonials = [
   {
@@ -39,10 +40,10 @@ const Testimonials = () => {
           className="text-center mb-16"
         >
           <h2 className="font-serif text-3xl md:text-5xl text-foreground mb-4">
-            <span className="italic text-primary">Testimonials</span>
+            <span className="italic text-primary"><Translate>Testimonials</Translate></span>
           </h2>
           <p className="text-primary font-serif italic text-lg">
-            Trusted by Industry Leaders
+            <Translate>Trusted by Industry Leaders</Translate>
           </p>
         </motion.div>
 
@@ -71,7 +72,7 @@ const Testimonials = () => {
 
               {/* Quote */}
               <p className="text-foreground mb-6 relative z-10">
-                "{testimonial.quote}"
+                "<Translate>{testimonial.quote}</Translate>"
               </p>
 
               {/* Author */}
@@ -80,7 +81,7 @@ const Testimonials = () => {
                   {testimonial.author}
                 </p>
                 <p className="text-muted-foreground text-sm">
-                  {testimonial.role}
+                  <Translate>{testimonial.role}</Translate>
                 </p>
                 <p className="text-primary text-sm">
                   {testimonial.company}

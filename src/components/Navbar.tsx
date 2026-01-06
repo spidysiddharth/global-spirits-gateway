@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Menu, X, Wine } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import zeliqLogo from "@/assets/zeliq-logo.jpeg";
+import LanguageSwitcher from "./LanguageSwitcher";
+import Translate from "./Translate";
 
 const navLinks = [
   { name: "Home", path: "/" },
@@ -43,9 +46,9 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
-            <Wine className="w-8 h-8 text-primary group-hover:scale-110 transition-transform" />
+            <img src={zeliqLogo} alt="Zeliq" className="w-10 h-10 object-contain group-hover:scale-110 transition-transform" />
             <span className="font-serif text-xl text-foreground tracking-wide">
-              Zilaq<span className="text-primary">Global</span>
+              Zeliq
             </span>
           </Link>
 
@@ -61,7 +64,7 @@ const Navbar = () => {
                     : "text-muted-foreground"
                 }`}
               >
-                {link.name}
+                <Translate>{link.name}</Translate>
                 {location.pathname === link.path && (
                   <motion.div
                     layoutId="activeNav"
@@ -73,9 +76,10 @@ const Navbar = () => {
           </div>
 
           {/* CTA Button */}
-          <div className="hidden md:block">
+          <div className="hidden md:flex items-center gap-4">
+            <LanguageSwitcher />
             <Button variant="hero" size="sm">
-              Partner With Us
+              <Translate>Partner With Us</Translate>
             </Button>
           </div>
 
@@ -107,11 +111,14 @@ const Navbar = () => {
                       : "text-muted-foreground hover:text-primary"
                   }`}
                 >
-                  {link.name}
+                  <Translate>{link.name}</Translate>
                 </Link>
               ))}
+              <div className="py-2">
+                <LanguageSwitcher />
+              </div>
               <Button variant="hero" size="sm" className="w-full mt-4">
-                Partner With Us
+                <Translate>Partner With Us</Translate>
               </Button>
             </div>
           </motion.div>

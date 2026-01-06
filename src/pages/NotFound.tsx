@@ -1,8 +1,9 @@
 import { Link, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { motion } from "framer-motion";
-import { Wine, Home } from "lucide-react";
+import { Home } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import zeliqLogo from "@/assets/zeliq-logo.jpeg";
 
 const NotFound = () => {
   const location = useLocation();
@@ -21,7 +22,7 @@ const NotFound = () => {
         transition={{ duration: 0.5 }}
         className="relative z-10 text-center px-4"
       >
-        <Wine className="w-20 h-20 mx-auto text-primary mb-8 opacity-50" />
+        <img src={zeliqLogo} alt="Zeliq" className="w-24 h-24 mx-auto object-contain mb-8 opacity-50" />
         
         <h1 className="font-serif text-6xl md:text-8xl text-foreground mb-4">
           404
