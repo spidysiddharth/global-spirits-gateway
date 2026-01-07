@@ -21,8 +21,8 @@ import Translate from "@/components/Translate";
 const contactInfo = [
   {
     icon: Building2,
-    title: "Headquarters",
-    details: ["Zeliq Pte. Ltd.", "Singapore Business Hub", "1 Raffles Place, #50-01"],
+    title: "Headquarter",
+    details: ["Zeliq Global Pte. Ltd.", "Singapore Business Hub", "1 Raffles Place, #50-01"],
   },
   {
     icon: Phone,
@@ -32,7 +32,7 @@ const contactInfo = [
   {
     icon: Mail,
     title: "Email",
-    details: ["info@premiumspirits.sg", "partnerships@premiumspirits.sg"],
+    details: ["info@zeliqglobal.com", "sales@zeliqglobal.com"],
   },
   {
     icon: Clock,
@@ -55,7 +55,7 @@ const Contact = () => {
     email: "",
     company: "",
     phone: "",
-    message: "",
+    message: "Hello,Team Zeliq. I'm interested in learning more about your premium spirits portfolio and distribution.",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -121,7 +121,7 @@ const Contact = () => {
               <Translate>Contact</Translate> <span className="italic text-primary"><Translate>Us</Translate></span>
             </h1>
             <p className="text-xl text-muted-foreground">
-              <Translate>Let's discuss how we can bring premium spirits to your market</Translate>
+              <Translate>Let's discuss how we connect premium spirits to global markets!</Translate>
             </p>
           </motion.div>
         </div>
@@ -186,7 +186,7 @@ const Contact = () => {
                         setFormData({ ...formData, company: e.target.value })
                       }
                       className="bg-secondary border-primary/20 focus:border-primary"
-                      placeholder="Your Company"
+                      placeholder="Company Name"
                     />
                   </div>
                   <div>
@@ -215,7 +215,6 @@ const Contact = () => {
                       setFormData({ ...formData, message: e.target.value })
                     }
                     className="bg-secondary border-primary/20 focus:border-primary min-h-[150px]"
-                    placeholder="Tell us about your requirements..."
                   />
                 </div>
 
@@ -270,7 +269,7 @@ const Contact = () => {
               </div>
 
               {/* Global Offices */}
-              <div className="glass-card p-6">
+              {/* <div className="glass-card p-6">
                 <h3 className="font-serif text-lg text-foreground mb-4 flex items-center gap-2">
                   <MapPin className="w-5 h-5 text-primary" />
                   <Translate>Global Offices</Translate>
@@ -288,10 +287,10 @@ const Contact = () => {
                     </div>
                   ))}
                 </div>
-              </div>
+              </div> */}
 
               {/* Social */}
-              <div className="mt-8">
+              {/* <div className="mt-8">
                 <p className="text-muted-foreground text-sm mb-3"><Translate>Connect with us</Translate></p>
                 <a
                   href="https://linkedin.com"
@@ -302,7 +301,7 @@ const Contact = () => {
                   <Linkedin className="w-5 h-5" />
                   <Translate>Follow on LinkedIn</Translate>
                 </a>
-              </div>
+              </div> */}
             </motion.div>
           </div>
         </div>

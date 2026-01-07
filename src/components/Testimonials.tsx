@@ -7,21 +7,21 @@ import Translate from "./Translate";
 const testimonials = [
   {
     quote: "Working with this distributor has been a game changer for our business. Their exceptional selection and professional service have exceeded our expectations.",
-    author: "Michael Thompson",
+    author: "",
     role: "Beverage Director",
-    company: "Prestige Wine & Spirits",
+    company: "Anonymous",
   },
   {
     quote: "An outstanding partner in the industry! Their expertise and commitment to quality make them a preferred choice for premium spirits.",
-    author: "Sarah Collins",
+    author: "",
     role: "Purchasing Manager",
-    company: "Elite Liquor Distributors",
+    company: "Anonymous",
   },
   {
     quote: "The attention to detail in their logistics and the quality of their portfolio is unmatched. A truly reliable partner for luxury hospitality.",
-    author: "James Chen",
+    author: "",
     role: "F&B Director",
-    company: "Grand Pacific Hotels",
+    company: "Anonymous",
   },
 ];
 
@@ -47,48 +47,60 @@ const Testimonials = () => {
           </p>
         </motion.div>
 
-        {/* Testimonials Grid */}
-        <div className="grid md:grid-cols-3 gap-6">
-          {testimonials.map((testimonial, index) => (
-            <motion.div
-              key={testimonial.author}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.15 }}
-              className="glass-card p-8 relative"
-            >
-              {/* Quote icon */}
-              <Quote className="w-8 h-8 text-primary/20 absolute top-6 right-6" />
+        {/* Testimonials - Infinite Scroll */}
+        <div className="relative overflow-hidden">
+          <motion.div
+            className="flex gap-6"
+            animate={{
+              x: [0, -1200],
+            }}
+            transition={{
+              x: {
+                duration: 25,
+                repeat: Infinity,
+                ease: "linear",
+              },
+            }}
+          >
+            {/* Render testimonials twice for seamless loop */}
+            {[...testimonials, ...testimonials].map((testimonial, index) => (
+              <div
+                key={index}
+                className="glass-card p-8 relative flex-shrink-0 w-[350px]"
+              >
+                {/* Quote icon */}
+                <Quote className="w-8 h-8 text-primary/20 absolute top-6 right-6" />
 
-              {/* Stars */}
-              <div className="flex gap-1 mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <Star
-                    key={i}
-                    className="w-4 h-4 text-primary fill-primary"
-                  />
-                ))}
+                {/* Stars */}
+                <div className="flex gap-1 mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star
+                      key={i}
+                      className="w-4 h-4 text-primary fill-primary"
+                    />
+                  ))}
+                </div>
+
+                {/* Quote */}
+                <p className="text-foreground mb-6 relative z-10">
+                  "<Translate>{testimonial.quote}</Translate>"
+                </p>
+
+                {/* Author */}
+                <div>
+                  <p className="font-serif text-foreground font-medium">
+                    {testimonial.author}
+                  </p>
+                  <p className="text-muted-foreground text-sm">
+                    <Translate>{testimonial.role}</Translate>
+                  </p>
+                  <p className="text-primary text-sm">
+                    {testimonial.company}
+                  </p>
+                </div>
               </div>
-
-              {/* Quote */}
-              <p className="text-foreground mb-6 relative z-10">
-                "<Translate>{testimonial.quote}</Translate>"
-              </p>
-
-              {/* Author */}
-              <div>
-                <p className="font-serif text-foreground font-medium">
-                  {testimonial.author}
-                </p>
-                <p className="text-muted-foreground text-sm">
-                  <Translate>{testimonial.role}</Translate>
-                </p>
-                <p className="text-primary text-sm">
-                  {testimonial.company}
-                </p>
-              </div>
-            </motion.div>
-          ))}
+            ))}
+          </motion.div>
         </div>
       </div>
     </section>

@@ -9,30 +9,44 @@ import ginG from "@/assets/gin.jpg";
 import brandyB from "@/assets/brandy.jpg";
 import vodkaV from "@/assets/vodka.jpg";
 import rumR from "@/assets/rum2.jpg";
+import spiritsImg from "@/assets/spirits.jpg";
 import Translate from "./Translate";
 
 const categories = [
   {
+    id: "all",
+    title: "All Products",
+    description: "Explore our complete collection",
+    image: spiritsImg,
+  },
+  {
+    id: "whiskey",
     title: "Whiskey",
-    description: "Exceptional vintages from world-renowned vineyards",
+    description: "Distinguished single malts and heritage blends aged in timeless oak.",
     image: whiskeyW,
   },
   {
+    id: "gin",
     title: "Gin",
-    description: "Premium whisky, vodka, gin & cognac collections",
+    description: "Artisanal infusions crafted with rare botanicals and aromatic essences.",
     image: ginG,
   },
   {
+    id: "brandy",
     title: "Brandy",
-    description: "Exclusive collector's items and rare finds",
+    description: "Refined elixirs distilled from the finest fruit harvests.",
     image: brandyB,
-  },{
+  },
+  {
+    id: "rum",
     title: "Rum",
-    description: "Exclusive collector's items and rare finds",
+    description: "Golden cane spirits and rich reserves from tropical shores.",
     image: rumR,
-  },{
+  },
+  {
+    id: "vodka",
     title: "Vodka",
-    description: "Exclusive collector's items and rare finds",
+    description: "Pristine spirits defined by unmatched purity and clarity.",
     image: vodkaV,
   },
 ];
@@ -55,40 +69,41 @@ const PortfolioPreview = () => {
             <Translate>Our</Translate> <span className="italic text-primary"><Translate>Portfolio</Translate></span>
           </h2>
           <p className="text-primary font-serif italic text-lg">
-            <Translate>Exceptional Brands. Exquisite Selection.</Translate>
+            <Translate>Exceptional Brands. Exquisite Selection. Engaging Markets.</Translate>
           </p>
         </motion.div>
 
         {/* Categories Grid */}
         <div className="grid md:grid-cols-3 gap-6 mb-12">
           {categories.map((category, index) => (
-            <motion.div
-              key={category.title}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.15 }}
-              className="group relative aspect-[3/4] rounded-lg overflow-hidden gold-border"
-            >
-              <img
-                src={category.image}
-                alt={category.title}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
-              
-              {/* Content */}
-              <div className="absolute bottom-0 left-0 right-0 p-6">
-                <h3 className="font-serif text-xl text-foreground mb-2">
-                  <Translate>{category.title}</Translate>
-                </h3>
-                <p className="text-muted-foreground text-sm">
-                  <Translate>{category.description}</Translate>
-                </p>
-              </div>
+            <Link to={`/products?category=${category.id}`} key={category.id}>
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: index * 0.15 }}
+                className="group relative aspect-[3/4] rounded-lg overflow-hidden gold-border cursor-pointer"
+              >
+                <img
+                  src={category.image}
+                  alt={category.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
+                
+                {/* Content */}
+                <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <h3 className="font-serif text-xl text-foreground mb-2">
+                    <Translate>{category.title}</Translate>
+                  </h3>
+                  <p className="text-muted-foreground text-sm">
+                    <Translate>{category.description}</Translate>
+                  </p>
+                </div>
 
-              {/* Hover overlay */}
-              <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </motion.div>
+                {/* Hover overlay */}
+                <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </motion.div>
+            </Link>
           ))}
         </div>
 

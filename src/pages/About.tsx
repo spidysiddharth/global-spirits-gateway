@@ -100,13 +100,13 @@ const About = () => {
               </h2>
               <div className="space-y-4 text-muted-foreground">
                 <p>
-                  <Translate>Founded in Singapore, we have established ourselves as the premier gateway connecting world-class spirits and wines to the rapidly growing markets of Asia-Pacific, Middle East, and Africa.</Translate>
+                  <Translate>Founded in Singapore, we have established ourselves as the premier gateway connecting world-class spirits and wines to the rapidly growing markets of Asia, Middle East, and Africa.</Translate>
                 </p>
                 <p>
-                  <Translate>Our strategic location in Singapore positions us as the ideal logistics hub, enabling seamless distribution to luxury hotels, duty-free shops, and high-end retailers across emerging markets.</Translate>
+                  <Translate>Our strategic location in Singapore positions us as the ideal logistics hub, enabling seamless distribution accross global markets.</Translate>
                 </p>
                 <p>
-                  <Translate>With decades of combined experience in the premium spirits industry, our team brings unparalleled expertise in brand positioning, market development, and regulatory compliance.</Translate>
+                  <Translate>With significant experience in the premium spirits industry, our team brings unparalleled expertise in brand positioning, market development, and regulatory compliance.</Translate>
                 </p>
               </div>
             </motion.div>
@@ -150,27 +150,39 @@ const About = () => {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {values.map((value, index) => (
-              <motion.div
-                key={value.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="glass-card p-8 text-center"
-              >
-                <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center">
-                  <value.icon className="w-7 h-7 text-primary" />
+          {/* Values - Infinite Scroll */}
+          <div className="relative overflow-hidden">
+            <motion.div
+              className="flex gap-6"
+              animate={{
+                x: [0, -1600],
+              }}
+              transition={{
+                x: {
+                  duration: 20,
+                  repeat: Infinity,
+                  ease: "linear",
+                },
+              }}
+            >
+              {/* Render values twice for seamless loop */}
+              {[...values, ...values].map((value, index) => (
+                <div
+                  key={index}
+                  className="glass-card p-8 text-center flex-shrink-0 w-[350px]"
+                >
+                  <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center">
+                    <value.icon className="w-7 h-7 text-primary" />
+                  </div>
+                  <h3 className="font-serif text-xl text-foreground mb-3">
+                    <Translate>{value.title}</Translate>
+                  </h3>
+                  <p className="text-muted-foreground text-sm">
+                    <Translate>{value.description}</Translate>
+                  </p>
                 </div>
-                <h3 className="font-serif text-xl text-foreground mb-3">
-                  <Translate>{value.title}</Translate>
-                </h3>
-                <p className="text-muted-foreground text-sm">
-                  <Translate>{value.description}</Translate>
-                </p>
-              </motion.div>
-            ))}
+              ))}
+            </motion.div>
           </div>
         </div>
       </section>

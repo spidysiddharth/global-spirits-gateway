@@ -46,7 +46,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
-            <img src={zeliqLogo} alt="Zeliq" className="w-10 h-10 object-contain group-hover:scale-110 transition-transform" />
+            <img src={zeliqLogo} alt="Zeliq" className="w-12 h-12 object-contain group-hover:scale-110 transition-transform" />
             <span className="font-serif text-xl text-foreground tracking-wide">
               Zeliq
             </span>
@@ -79,7 +79,9 @@ const Navbar = () => {
           <div className="hidden md:flex items-center gap-4">
             <LanguageSwitcher />
             <Button variant="hero" size="sm">
-              <Translate>Partner With Us</Translate>
+              <Link to="/contact">
+                <Translate>Partner With Us</Translate>
+              </Link>
             </Button>
           </div>
 
@@ -118,7 +120,9 @@ const Navbar = () => {
                 <LanguageSwitcher />
               </div>
               <Button variant="hero" size="sm" className="w-full mt-4">
-                <Translate>Partner With Us</Translate>
+                <Link to="/contact">
+                  <Translate>Partner With Us</Translate>
+                </Link>
               </Button>
             </div>
           </motion.div>

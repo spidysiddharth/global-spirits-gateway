@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -214,7 +214,17 @@ const products = [
 ];
 
 const Products = () => {
-  const [activeCategory, setActiveCategory] = useState<string | null>(null);
+  const [searchParams] = useSearchParams();
+  const categoryFromUrl = searchParams.get("category");
+  
+  const [activeCategory, setActiveCategory] = useState<string | null>(categoryFromUrl);
+
+  // Set category from URL on mount
+  useEffect(() => {
+    if (categoryFromUrl) {
+      setActiveCategory(categoryFromUrl);
+    }
+  }, [categoryFromUrl]);
 
   // Scroll to top instantly when category changes
   useEffect(() => {
@@ -249,7 +259,7 @@ const Products = () => {
               <Translate>Our</Translate> <span className="italic text-primary"><Translate>Portfolio</Translate></span>
             </h1>
             <p className="text-xl text-muted-foreground">
-              <Translate>Exceptional Brands. Exquisite Selection.</Translate>
+              <Translate>Exceptional Brands. Exquisite Selection. Engaging Markets.</Translate>
             </p>
           </motion.div>
         </div>
@@ -276,7 +286,7 @@ const Products = () => {
         <div className="container mx-auto px-4 md:px-6">
           {activeCategory === null ? (
             /* Category Selection - Image Grid */
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid md:grid-cols-3 gap-6 mb-12">
               {categories.map((category, index) => (
                 <motion.div
                   key={category.id}
@@ -314,8 +324,9 @@ const Products = () => {
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: index * 0.1 }}
+                    className="group"
                   >
-                    <Link to={`/products/${product.id}`} className="group block">
+                    {/* <Link to={`/products/${product.id}`} className="group block"> */}
                       <div className="relative aspect-[3/4] rounded-lg overflow-hidden gold-border mb-4">
                         <img
                           src={product.image}
@@ -325,16 +336,16 @@ const Products = () => {
                         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
                         
                         {/* Region badge */}
-                        <div className="absolute top-4 left-4 px-3 py-1 bg-card/80 backdrop-blur-sm rounded-full text-xs text-primary border border-primary/30">
+                        {/* <div className="absolute top-4 left-4 px-3 py-1 bg-card/80 backdrop-blur-sm rounded-full text-xs text-primary border border-primary/30">
                           {product.region}
-                        </div>
+                        </div> */}
 
                         {/* View Details overlay on hover */}
-                        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-background/60 backdrop-blur-sm">
+                        {/* <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-background/60 backdrop-blur-sm">
                           <span className="px-4 py-2 bg-primary text-background font-medium rounded-full text-sm">
                             <Translate>View Details</Translate>
                           </span>
-                        </div>
+                        </div> */}
                       </div>
 
                       <h3 className="font-serif text-lg text-foreground mb-1 group-hover:text-primary transition-colors">
@@ -343,7 +354,7 @@ const Products = () => {
                       <p className="text-muted-foreground text-sm line-clamp-2">
                         <Translate>{product.description}</Translate>
                       </p>
-                    </Link>
+                    {/* </Link> */}
                   </motion.div>
                 ))}
               </div>

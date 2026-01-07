@@ -17,11 +17,11 @@ const Footer = () => {
               </span>
             </Link>
             <p className="text-muted-foreground text-sm max-w-md mb-4">
-              <Translate>Singapore's premier distributor of world-class wines and spirits. Bridging global luxury brands to emerging markets across Asia-Pacific, Middle East, and Africa.</Translate>
+              <Translate>Singapore's premier distributor of world-class wines and spirits. Bringing premium luxury brands to global markets.</Translate>
             </p>
             <div className="flex items-center gap-2 text-muted-foreground text-sm">
               <MapPin className="w-4 h-4 text-primary" />
-              <span>Singapore • Dubai • Mumbai • Cape Town</span>
+              <span>Asia, Middle East, and Africa</span>
             </div>
           </div>
 
@@ -52,7 +52,7 @@ const Footer = () => {
                   className="flex items-center gap-2 text-muted-foreground hover:text-primary text-sm transition-colors"
                 >
                   <Mail className="w-4 h-4" />
-                  info@premiumspirits.sg
+                  partner@zeliqglobal.com
                 </a>
               </li>
               <li>
@@ -66,7 +66,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="https://wa.me/971552251680?text=Hello%2C%20I'm%20interested%20in%20learning%20more%20about%20your%20premium%20spirits%20portfolio."
+                  href="https://wa.me/971552251680?text=Hello%2C%20Team%20Zeliq.%20I'm%20interested%20in%20learning%20more%20about%20your%20premium%20spirits%20portfolio."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-muted-foreground hover:text-primary text-sm transition-colors"
@@ -75,7 +75,7 @@ const Footer = () => {
                   WhatsApp
                 </a>
               </li>
-              <li>
+              {/* <li>
                 <a
                   href="https://linkedin.com"
                   target="_blank"
@@ -85,18 +85,21 @@ const Footer = () => {
                   <Linkedin className="w-4 h-4" />
                   LinkedIn
                 </a>
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-primary/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-muted-foreground text-xs">
-            © {new Date().getFullYear()} Zeliq Pte. Ltd. <Translate>All rights reserved.</Translate>
+        <div className="border-t border-primary/10 pt-8 grid grid-cols-3 items-center gap-4">
+          <p className="text-muted-foreground text-xs text-left">
+            © 2025 Zeliq Global Pte. Ltd.
           </p>
-          <p className="text-muted-foreground text-xs italic">
-            <Translate>Please enjoy responsibly. Must be of legal drinking age.</Translate>
+          <p className="text-muted-foreground text-xs text-center">
+            <Translate>All rights reserved.</Translate>
+          </p>
+          <p className="text-muted-foreground text-xs italic text-right pr-10">
+            <Translate>Intended for audiences of legal drinking age only. Enjoy liquor responsibly.</Translate>
           </p>
         </div>
       </div>

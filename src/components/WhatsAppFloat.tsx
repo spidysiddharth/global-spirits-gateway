@@ -1,7 +1,7 @@
 const WhatsAppFloat = () => {
   const handleWhatsAppClick = () => {
     window.open(
-      "https://wa.me/971552251680?text=Hello%2C%20I'm%20interested%20in%20learning%20more%20about%20your%20premium%20spirits%20portfolio.",
+      "https://wa.me/971552251680?text=Hello%2C%20Team%20Zeliq.%20I'm%20interested%20in%20learning%20more%20about%20your%20premium%20spirits%20portfolio.",
       "_blank",
       "noopener,noreferrer"
     );

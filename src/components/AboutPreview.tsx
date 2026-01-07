@@ -21,12 +21,12 @@ const features = [
   {
     icon: Truck,
     title: "Expert Logistics",
-    description: "Temperature-controlled, compliant delivery",
+    description: "Quality packaging, compliant delivery",
   },
   {
     icon: Shield,
     title: "Full Compliance",
-    description: "International regulatory expertise",
+    description: "International regulatory compliance",
   },
 ];
 
@@ -39,7 +39,7 @@ const AboutPreview = () => {
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-radial from-primary/5 via-transparent to-transparent" />
 
-      <div className="container mx-auto px-4 md:px-6">
+      <div className="container mx-auto px-1 md:px-2">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Content */}
           <motion.div
@@ -55,7 +55,7 @@ const AboutPreview = () => {
               <span className="italic text-primary"><Translate>Distributing Prestige.</Translate></span>
             </h2>
             <p className="text-muted-foreground text-lg mb-8">
-              <Translate>We are a leading importer and distributor of the world's finest wines and spirits, dedicated to delivering unparalleled quality and service. With an exclusive selection of renowned brands, we bring the best of the world to your business.</Translate>
+              <Translate>We are a leading global distributor of the world's finest wines and spirits, dedicated to delivering unparalleled quality and service. With an exclusive selection of renowned brands, we bring the best of the world to your business.</Translate>
             </p>
 
             {/* Features grid */}

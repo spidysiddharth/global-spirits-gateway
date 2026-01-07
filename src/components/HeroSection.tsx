@@ -7,7 +7,7 @@ import Translate from "./Translate";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
@@ -30,10 +30,15 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <span className="inline-flex items-center gap-2 text-primary text-sm tracking-widest uppercase mb-6">
-              <Sparkles className="w-4 h-4" />
-              <Translate>Singapore's Premier Distributor</Translate>
-            </span>
+            <div className="flex flex-wrap items-center gap-2 mb-6">
+              <Sparkles className="w-4 h-4 text-primary" />
+              <span className="text-primary text-sm tracking-widest uppercase">
+                <Translate>Singapore's Premier Liquor Distributor</Translate>
+              </span>
+              <span className="text-foreground font-serif italic text-lg">
+                <Translate>Connecting World-Class Brands to Global Markets</Translate>
+              </span>
+            </div>
           </motion.div>
 
           <motion.h1
@@ -54,7 +59,7 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="text-lg md:text-xl text-muted-foreground max-w-xl mb-8"
           >
-            <Translate>Your trusted partner in premium wines, spirits, and luxury liquor brands. Bridging the world's finest spirits to emerging markets.</Translate>
+            <Translate>Your trusted partner in premium wines, spirits, and luxury liquor brands. Bringing the world's finest spirits to global markets.</Translate>
           </motion.p>
 
           <motion.div
@@ -83,7 +88,7 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 1 }}
             className="mt-16 pt-8 border-t border-primary/20"
           >
-            <p className="text-muted-foreground text-sm tracking-widest uppercase mb-4">
+            {/* <p className="text-muted-foreground text-sm tracking-widest uppercase mb-4">
               <Translate>Distribution Network</Translate>
             </p>
             <div className="flex flex-wrap gap-6 text-foreground">
@@ -93,7 +98,7 @@ const HeroSection = () => {
                   <Translate>{region}</Translate>
                 </span>
               ))}
-            </div>
+            </div> */}
           </motion.div>
         </div>
       </div>
