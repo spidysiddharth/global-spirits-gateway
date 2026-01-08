@@ -29,17 +29,18 @@ import jollyrogerR from "@/assets/jolly-r.png";
 import officerR from "@/assets/officer-r.png";
 import class21V from "@/assets/class-v.png";
 import whiskeyW from "@/assets/whisky.png";
-import ginG from "@/assets/gin.jpg";
 import brandyB from "@/assets/brandy.jpg";
 import vodkaV from "@/assets/vodka.jpg";
 import rumR from "@/assets/rum2.jpg";
+import ginGG from "@/assets/ginGG.png";
+import vodkaVV from "@/assets/vodkaVV.png";
 const categories = [
-  { id: "all", name: "All Products", image: heroBg },
-  { id: "whiskey", name: "Whiskey", image: whiskeyW },
-  { id: "gin", name: "Gin", image: ginG },
-  { id: "brandy", name: "Brandy", image: brandyB },
-  { id: "rum", name: "Rum", image: rumR },
-  { id: "vodka", name: "Vodka", image: vodkaV },
+  { id: "all", name: "All Products", description: "Explore our complete collection", image: heroBg },
+  { id: "whiskey", name: "Whiskey", description: "Distinguished single malts and heritage blends aged in timeless oak.", image: whiskeyW },
+  { id: "gin", name: "Gin", description: "Artisanal infusions crafted with rare botanicals and aromatic essences.", image: ginGG },
+  { id: "brandy", name: "Brandy", description: "Refined elixirs distilled from the finest fruit harvests.", image: brandyB },
+  { id: "rum", name: "Rum", description: "Golden cane spirits and rich reserves from tropical shores.", image: rumR },
+  { id: "vodka", name: "Vodka", description: "Pristine spirits defined by unmatched purity and clarity.", image: vodkaVV },
 ];
 
 const products = [
@@ -293,24 +294,35 @@ const Products = () => {
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="group relative aspect-[3/4] rounded-lg overflow-hidden gold-border cursor-pointer"
                   onClick={() => setActiveCategory(category.id)}
-                  className="group cursor-pointer"
                 >
-                  <div className="relative aspect-[3/4] rounded-lg overflow-hidden gold-border">
-                    <img
-                      src={category.image}
-                      alt={category.name}
-                      className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
-                    
-                    {/* Category Name */}
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <h3 className="font-serif text-3xl text-foreground text-center px-4 drop-shadow-lg group-hover:text-primary transition-colors">
-                        <Translate>{category.name}</Translate>
-                      </h3>
-                    </div>
+                  <img
+                    src={category.image}
+                    alt={category.name}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
+                  
+                  {/* Content at bottom left with proper wrapping */}
+                  <div className="absolute bottom-0 left-0 p-6 pr-40">
+                    <h3 className="font-serif text-2xl text-foreground mb-2 group-hover:text-primary transition-colors">
+                      <Translate>{category.name}</Translate>
+                    </h3>
+                    <p className="text-muted-foreground text-sm break-words">
+                      <Translate>{category.description}</Translate>
+                    </p>
                   </div>
+
+                  {/* View More button at bottom right */}
+                  <div className="absolute bottom-6 right-6">
+                    <button className="px-6 py-2 bg-primary text-black font-medium hover:bg-primary/90 transition-colors">
+                      <Translate>View More</Translate>
+                    </button>
+                  </div>
+
+                  {/* Hover overlay */}
+                  <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </motion.div>
               ))}
             </div>

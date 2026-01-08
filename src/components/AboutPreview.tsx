@@ -4,7 +4,9 @@ import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Award, Globe, Truck, Shield } from "lucide-react";
-import aboutBg from "@/assets/about-bg.jpg";
+// import zeliqLogo from "@/assets/zeliq-logo.jpeg";
+// If you have a video, uncomment and update the filename below:
+import zeliqVideo from "@/assets/zeliq-animation.mp4";
 import Translate from "./Translate";
 
 const features = [
@@ -87,20 +89,151 @@ const AboutPreview = () => {
             </Link>
           </motion.div>
 
-          {/* Image */}
+          {/* Video/Image */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative"
           >
-            <div className="relative aspect-[4/3] rounded-lg overflow-hidden gold-border gold-glow">
-              <img
-                src={aboutBg}
-                alt="Premium spirits on oak barrel"
-                className="w-full h-full object-cover"
+            <div className="relative aspect-square rounded-lg gold-border gold-glow bg-black flex items-center justify-center overflow-hidden">
+              {/* Video - Uncomment when you add your video file */}
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-full object-cover relative z-10"
+              >
+                <source src={zeliqVideo} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+              
+              {/* Fallback Logo - Comment out when using video */}
+              {/* <img
+                src={zeliqLogo}
+                alt="Zeliq Logo"
+                className="w-4/5 h-4/5 object-contain relative z-10"
+              /> */}
+              
+              {/* <div className="w-full h-full relative z-10 flex items-center justify-center">
+                <p className="text-primary text-center px-8">
+                  Place your video file in: <br />
+                  <code className="text-xs">src/assets/zeliq-animation.mp4</code><br />
+                  <span className="text-sm mt-2 block">Then uncomment the video code above</span>
+                </p>
+              </div> */}
+              
+              {/* Animated glow effects - These will work with video too */}
+              <motion.div
+                animate={{
+                  opacity: [0.6, 1, 0.6],
+                  scale: [1, 1.3, 1],
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="absolute left-[10%] top-[25%] w-12 h-12 bg-primary rounded-full blur-lg"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
+              <motion.div
+                animate={{
+                  opacity: [0.7, 1, 0.7],
+                  scale: [1, 1.4, 1],
+                }}
+                transition={{
+                  duration: 2.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 0.5,
+                }}
+                className="absolute left-[8%] top-[50%] w-14 h-14 bg-primary rounded-full blur-lg"
+              />
+              <motion.div
+                animate={{
+                  opacity: [0.6, 1, 0.6],
+                  scale: [1, 1.3, 1],
+                }}
+                transition={{
+                  duration: 2.2,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 1,
+                }}
+                className="absolute left-[10%] top-[75%] w-12 h-12 bg-primary rounded-full blur-lg"
+              />
+
+              {/* Animated glow effects on laurel leaves - Right side */}
+              <motion.div
+                animate={{
+                  opacity: [0.6, 1, 0.6],
+                  scale: [1, 1.3, 1],
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 0.3,
+                }}
+                className="absolute right-[10%] top-[25%] w-12 h-12 bg-primary rounded-full blur-lg"
+              />
+              <motion.div
+                animate={{
+                  opacity: [0.7, 1, 0.7],
+                  scale: [1, 1.4, 1],
+                }}
+                transition={{
+                  duration: 2.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 0.8,
+                }}
+                className="absolute right-[8%] top-[50%] w-14 h-14 bg-primary rounded-full blur-lg"
+              />
+              <motion.div
+                animate={{
+                  opacity: [0.6, 1, 0.6],
+                  scale: [1, 1.3, 1],
+                }}
+                transition={{
+                  duration: 2.2,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 1.3,
+                }}
+                className="absolute right-[10%] top-[75%] w-12 h-12 bg-primary rounded-full blur-lg"
+              />
+
+              {/* Top center glow */}
+              <motion.div
+                animate={{
+                  opacity: [0.5, 1, 0.5],
+                  scale: [1, 1.5, 1],
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 0.2,
+                }}
+                className="absolute top-[15%] left-1/2 -translate-x-1/2 w-16 h-16 bg-primary rounded-full blur-xl"
+              />
+
+              {/* Bottom center glow */}
+              <motion.div
+                animate={{
+                  opacity: [0.5, 1, 0.5],
+                  scale: [1, 1.5, 1],
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 1.5,
+                }}
+                className="absolute bottom-[15%] left-1/2 -translate-x-1/2 w-16 h-16 bg-primary rounded-full blur-xl"
+              />
             </div>
             
             {/* Decorative element */}

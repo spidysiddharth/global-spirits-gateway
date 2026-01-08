@@ -5,19 +5,18 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import whiskeyW from "@/assets/whisky.png";
-import ginG from "@/assets/gin.jpg";
 import brandyB from "@/assets/brandy.jpg";
-import vodkaV from "@/assets/vodka.jpg";
 import rumR from "@/assets/rum2.jpg";
-import spiritsImg from "@/assets/spirits.jpg";
 import Translate from "./Translate";
-
+import heroBg from "@/assets/hero-bg.jpg";
+import vodkaVV from "@/assets/vodkaVV.png";
+import ginGG from "@/assets/ginGG.png";
 const categories = [
   {
     id: "all",
     title: "All Products",
     description: "Explore our complete collection",
-    image: spiritsImg,
+    image: heroBg,
   },
   {
     id: "whiskey",
@@ -29,7 +28,7 @@ const categories = [
     id: "gin",
     title: "Gin",
     description: "Artisanal infusions crafted with rare botanicals and aromatic essences.",
-    image: ginG,
+    image: ginGG,
   },
   {
     id: "brandy",
@@ -47,7 +46,7 @@ const categories = [
     id: "vodka",
     title: "Vodka",
     description: "Pristine spirits defined by unmatched purity and clarity.",
-    image: vodkaV,
+    image: vodkaVV,
   },
 ];
 
@@ -90,14 +89,21 @@ const PortfolioPreview = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
                 
-                {/* Content */}
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <h3 className="font-serif text-xl text-foreground mb-2">
+                {/* Content at bottom left with proper wrapping */}
+                <div className="absolute bottom-0 left-0 p-6 pr-40">
+                  <h3 className="font-serif text-xl text-foreground mb-2 group-hover:text-primary transition-colors">
                     <Translate>{category.title}</Translate>
                   </h3>
-                  <p className="text-muted-foreground text-sm">
+                  <p className="text-muted-foreground text-sm break-words">
                     <Translate>{category.description}</Translate>
                   </p>
+                </div>
+
+                {/* View More button at bottom right */}
+                <div className="absolute bottom-6 right-6">
+                  <button className="px-6 py-2 bg-primary text-black font-medium hover:bg-primary/90 transition-colors">
+                    <Translate>View More</Translate>
+                  </button>
                 </div>
 
                 {/* Hover overlay */}

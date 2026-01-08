@@ -2,8 +2,10 @@ import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Globe, Award, Truck, Shield, Users, TrendingUp, Target, Star } from "lucide-react";
-import aboutBg from "@/assets/zeliq-logo.jpeg";
+// import aboutBg from "@/assets/zeliq-logo.jpeg";
 import heroBg from "@/assets/hero-bg.jpg";
+// If you have a video, uncomment and update the filename below:
+import zeliqVideo from "@/assets/zeliq-animation.mp4";
 import Translate from "@/components/Translate";
 
 const values = [
@@ -118,11 +120,137 @@ const About = () => {
               viewport={{ once: true }}
               className="relative"
             >
-              <div className="aspect-square rounded-lg overflow-hidden gold-border gold-glow">
-                <img
+              <div className="aspect-square rounded-lg gold-border gold-glow bg-black flex items-center justify-center overflow-hidden">
+                {/* Video - Uncomment when you add your video file */}
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover relative z-10"
+                >
+                  <source src={zeliqVideo} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+                
+                {/* Fallback Logo - Comment out when using video */}
+                {/* <img
                   src={aboutBg}
                   alt="Premium spirits"
-                  className="w-full h-full object-cover"
+                  className="w-4/5 h-4/5 object-contain relative z-10"
+                /> */}
+                
+                
+                
+                {/* Animated glow effects - Left side */}
+                <motion.div
+                  animate={{
+                    opacity: [0.6, 1, 0.6],
+                    scale: [1, 1.3, 1],
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                  className="absolute left-[10%] top-[25%] w-12 h-12 bg-primary rounded-full blur-lg"
+                />
+                <motion.div
+                  animate={{
+                    opacity: [0.7, 1, 0.7],
+                    scale: [1, 1.4, 1],
+                  }}
+                  transition={{
+                    duration: 2.5,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: 0.5,
+                  }}
+                  className="absolute left-[8%] top-[50%] w-14 h-14 bg-primary rounded-full blur-lg"
+                />
+                <motion.div
+                  animate={{
+                    opacity: [0.6, 1, 0.6],
+                    scale: [1, 1.3, 1],
+                  }}
+                  transition={{
+                    duration: 2.2,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: 1,
+                  }}
+                  className="absolute left-[10%] top-[75%] w-12 h-12 bg-primary rounded-full blur-lg"
+                />
+
+                {/* Animated glow effects - Right side */}
+                <motion.div
+                  animate={{
+                    opacity: [0.6, 1, 0.6],
+                    scale: [1, 1.3, 1],
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: 0.3,
+                  }}
+                  className="absolute right-[10%] top-[25%] w-12 h-12 bg-primary rounded-full blur-lg"
+                />
+                <motion.div
+                  animate={{
+                    opacity: [0.7, 1, 0.7],
+                    scale: [1, 1.4, 1],
+                  }}
+                  transition={{
+                    duration: 2.5,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: 0.8,
+                  }}
+                  className="absolute right-[8%] top-[50%] w-14 h-14 bg-primary rounded-full blur-lg"
+                />
+                <motion.div
+                  animate={{
+                    opacity: [0.6, 1, 0.6],
+                    scale: [1, 1.3, 1],
+                  }}
+                  transition={{
+                    duration: 2.2,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: 1.3,
+                  }}
+                  className="absolute right-[10%] top-[75%] w-12 h-12 bg-primary rounded-full blur-lg"
+                />
+
+                {/* Top center glow */}
+                <motion.div
+                  animate={{
+                    opacity: [0.5, 1, 0.5],
+                    scale: [1, 1.5, 1],
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: 0.2,
+                  }}
+                  className="absolute top-[15%] left-1/2 -translate-x-1/2 w-16 h-16 bg-primary rounded-full blur-xl"
+                />
+
+                {/* Bottom center glow */}
+                <motion.div
+                  animate={{
+                    opacity: [0.5, 1, 0.5],
+                    scale: [1, 1.5, 1],
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: 1.5,
+                  }}
+                  className="absolute bottom-[15%] left-1/2 -translate-x-1/2 w-16 h-16 bg-primary rounded-full blur-xl"
                 />
               </div>
               <div className="absolute -bottom-6 -left-6 w-32 h-32 border border-primary/30 rounded-lg -z-10" />

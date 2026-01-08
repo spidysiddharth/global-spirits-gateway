@@ -1,8 +1,19 @@
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import zeliqLogo from "@/assets/zeliq-logo.jpeg";
 import LanguageSwitcher from "./LanguageSwitcher";
 import Translate from "./Translate";
@@ -14,10 +25,39 @@ const navLinks = [
   { name: "Contact", path: "/contact" },
 ];
 
+const marketResearchLocations = [
+  // Asia
+  { name: "Singapore", region: "Asia" },
+  { name: "Malaysia", region: "Asia" },
+  { name: "Philippines", region: "Asia" },
+  { name: "Vietnam", region: "Asia" },
+  { name: "Laos", region: "Asia" },
+  { name: "India", region: "Asia" },
+  
+  // Middle East
+  { name: "United Arab Emirates", region: "Middle East" },
+  { name: "Saudi Arabia", region: "Middle East" },
+  { name: "Lebanon", region: "Middle East" },
+  { name: "Qatar", region: "Middle East" },
+  { name: "Egypt", region: "Middle East" },
+  
+  // Africa
+  { name: "South Africa", region: "Africa" },
+  { name: "Nigeria", region: "Africa" },
+  { name: "Kenya", region: "Africa" },
+  { name: "Ethiopia", region: "Africa" },
+  { name: "Angola", region: "Africa" },
+];
+
+const regions = ["Asia", "Middle East", "Africa"];
+
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const [isMarketResearchOpen, setIsMarketResearchOpen] = useState(false);
+  const [openRegion, setOpenRegion] = useState<string | null>(null);
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,6 +70,18 @@ const Navbar = () => {
   useEffect(() => {
     setIsMobileOpen(false);
   }, [location]);
+
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMobileOpen]);
 
   return (
     <motion.nav
@@ -73,6 +125,61 @@ const Navbar = () => {
                 )}
               </Link>
             ))}
+            
+            {/* Market Research Dropdown */}
+            <DropdownMenu open={isMarketResearchOpen} onOpenChange={setIsMarketResearchOpen}>
+              <DropdownMenuTrigger 
+                className="relative text-sm tracking-wider uppercase transition-colors hover:text-primary text-muted-foreground flex items-center gap-1"
+                onMouseEnter={() => setIsMarketResearchOpen(true)}
+              >
+                <Translate>Market Research</Translate>
+                <ChevronDown className="w-3 h-3" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent 
+                className="relative text-sm tracking-wider uppercase transition-colors text-white/70"
+                onMouseEnter={() => setIsMarketResearchOpen(true)}
+                onMouseLeave={() => {
+                  setIsMarketResearchOpen(false);
+                  setOpenRegion(null);
+                }}
+              >
+                {/* <DropdownMenuLabel></DropdownMenuLabel> */}
+                <DropdownMenuSeparator />
+                {regions.map((region) => (
+                  <DropdownMenuSub 
+                    key={region}
+                    open={openRegion === region}
+                    onOpenChange={(open) => setOpenRegion(open ? region : null)}
+                  >
+                    <DropdownMenuSubTrigger
+                      onMouseEnter={() => setOpenRegion(region)}
+                    >
+                      <span>{region}</span>
+                    </DropdownMenuSubTrigger>
+                    <DropdownMenuSubContent 
+                      className="w-56"
+                      onMouseLeave={() => setOpenRegion(null)}
+                    >
+                      {marketResearchLocations
+                        .filter((loc) => loc.region === region)
+                        .map((country) => (
+                          <DropdownMenuItem
+                            key={country.name}
+                            onClick={() => {
+                              const countrySlug = country.name.toLowerCase().replace(/\s+/g, "-");
+                              navigate(`/market-research/${countrySlug}`);
+                              setIsMarketResearchOpen(false);
+                              setOpenRegion(null);
+                            }}
+                          >
+                            {country.name}
+                          </DropdownMenuItem>
+                        ))}
+                    </DropdownMenuSubContent>
+                  </DropdownMenuSub>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
 
           {/* CTA Button */}
@@ -100,9 +207,9 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden pb-6"
+            className="md:hidden bg-black border-t border-primary/10 mt-4 max-h-[70vh] overflow-y-auto overscroll-contain"
           >
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-4 py-4 px-4">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
@@ -116,10 +223,45 @@ const Navbar = () => {
                   <Translate>{link.name}</Translate>
                 </Link>
               ))}
-              <div className="py-2">
+              
+              {/* Market Research - Simple collapsible for mobile */}
+              <div className="border-t border-primary/10 pt-4">
+                <details className="group">
+                  <summary className="text-sm tracking-wider uppercase text-muted-foreground hover:text-primary flex items-center justify-between cursor-pointer py-2 list-none">
+                    <Translate>Market Research</Translate>
+                    <ChevronDown className="w-3 h-3 transition-transform group-open:rotate-180" />
+                  </summary>
+                  <div className="mt-2 pl-4 space-y-4">
+                    {regions.map((region) => (
+                      <details key={region} className="group/region">
+                        <summary className="text-xs tracking-wider uppercase text-primary/80 hover:text-primary flex items-center justify-between cursor-pointer py-2 list-none">
+                          {region}
+                          <ChevronDown className="w-3 h-3 transition-transform group-open/region:rotate-180" />
+                        </summary>
+                        <div className="mt-2 pl-4 space-y-2">
+                          {marketResearchLocations
+                            .filter((loc) => loc.region === region)
+                            .map((country) => (
+                              <Link
+                                key={country.name}
+                                to={`/market-research/${country.name.toLowerCase().replace(/\s+/g, "-")}`}
+                                className="block text-xs uppercase text-muted-foreground hover:text-primary py-1.5 transition-colors"
+                                onClick={() => setIsMobileOpen(false)}
+                              >
+                                {country.name}
+                              </Link>
+                            ))}
+                        </div>
+                      </details>
+                    ))}
+                  </div>
+                </details>
+              </div>
+              
+              <div className="py-2 border-t border-primary/10">
                 <LanguageSwitcher />
               </div>
-              <Button variant="hero" size="sm" className="w-full mt-4">
+              <Button variant="hero" size="sm" className="w-full mt-2">
                 <Link to="/contact">
                   <Translate>Partner With Us</Translate>
                 </Link>
