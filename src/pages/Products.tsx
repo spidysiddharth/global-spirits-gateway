@@ -56,7 +56,7 @@ const categories = [
   { id: "whiskey", name: "Whiskey", description: "Distinguished single malts and heritage blends aged in timeless oak.", image: whiskeyW },
   { id: "gin", name: "Gin", description: "Artisanal infusions crafted with rare botanicals and aromatic essences.", image: ginGG },
   { id: "brandy", name: "Brandy", description: "Refined elixirs distilled from the finest fruit harvests.", image: brandyB },
-  { id: "rum", name: "Rum", description: "Golden cane spirits and rich reserves from tropical shores.", image: rumR },
+  // { id: "rum", name: "Rum", description: "Golden cane spirits and rich reserves from tropical shores.", image: rumR },
   { id: "vodka", name: "Vodka", description: "Pristine spirits defined by unmatched purity and clarity.", image: vodkaVV },
 ];
 const products = [

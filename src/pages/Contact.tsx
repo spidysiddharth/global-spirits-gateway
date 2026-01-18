@@ -22,12 +22,12 @@ const contactInfo = [
   {
     icon: Building2,
     title: "Headquarter",
-    details: ["Zeliq Global Pte. Ltd.", "Singapore Business Hub", "1 Raffles Place, #50-01"],
+    details: ["#07-10, No. 77 HIGH STREET, HIGH STREET PLAZA, SINGAPORE 179433"],
   },
   {
     icon: Phone,
     title: "Phone",
-    details: ["+65 6789 1234", "+65 6789 5678"],
+    details: ["+65 8147 9303", "+971 55225 1680"],
   },
   {
     icon: Mail,
@@ -155,7 +155,7 @@ const Contact = () => {
                         setFormData({ ...formData, name: e.target.value })
                       }
                       className="bg-secondary border-primary/20 focus:border-primary"
-                      placeholder="John Smith"
+                      placeholder="Full Name"
                     />
                   </div>
                   <div>
@@ -170,7 +170,7 @@ const Contact = () => {
                         setFormData({ ...formData, email: e.target.value })
                       }
                       className="bg-secondary border-primary/20 focus:border-primary"
-                      placeholder="john@company.com"
+                      placeholder="email id"
                     />
                   </div>
                 </div>
@@ -199,7 +199,7 @@ const Contact = () => {
                         setFormData({ ...formData, phone: e.target.value })
                       }
                       className="bg-secondary border-primary/20 focus:border-primary"
-                      placeholder="+65 1234 5678"
+                      placeholder="Phone Number"
                     />
                   </div>
                 </div>

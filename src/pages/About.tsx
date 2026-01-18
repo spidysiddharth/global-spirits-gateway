@@ -102,13 +102,13 @@ const About = () => {
               </h2>
               <div className="space-y-4 text-muted-foreground">
                 <p>
-                  <Translate>Founded in Singapore, we have established ourselves as the premier gateway connecting world-class spirits and wines to the rapidly growing markets of Asia, Middle East, and Africa.</Translate>
+                  <Translate>Founded in Singapore, Zeliq has established itself as a premier distributor of world-class spirits and wines, serving as a vital bridge to the rapidly evolving markets of the Asia Pacific, the Middle East, and Africa.</Translate>
                 </p>
                 <p>
-                  <Translate>Our strategic location in Singapore positions us as the ideal logistics hub, enabling seamless distribution accross global markets.</Translate>
+                  <Translate>We hold a significant and successful presence across the APAC region, with established operations in Singapore, Malaysia, the Philippines, Vietnam, Cambodia, and Laos. Beyond Asia, our network extends extensively across multiple key markets in Africa and the Middle East.</Translate>
                 </p>
                 <p>
-                  <Translate>With significant experience in the premium spirits industry, our team brings unparalleled expertise in brand positioning, market development, and regulatory compliance.</Translate>
+                  <Translate>Leveraging our strategic Singapore headquarters as a global logistics hub, Zeliq combines seamless distribution with unparalleled expertise in brand positioning and regulatory compliance to drive growth for premium brands.</Translate>
                 </p>
               </div>
             </motion.div>
