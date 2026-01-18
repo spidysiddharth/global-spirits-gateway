@@ -57,7 +57,7 @@ const AboutPreview = () => {
               <span className="italic text-primary"><Translate>Distributing Prestige.</Translate></span>
             </h2>
             <p className="text-muted-foreground text-lg mb-8">
-              <Translate>We are a leading global distributor of the world's finest wines and spirits, dedicated to delivering unparalleled quality and service. With an exclusive selection of renowned brands, we bring the best of the world to your business.</Translate>
+              <Translate>We hold a significant and successful presence across the APAC region, with established operations in Singapore, Malaysia, the Philippines, Vietnam, Cambodia, and Laos. Beyond Asia, our network extends extensively across multiple key markets in Africa and the Middle East.</Translate>
             </p>
 
             {/* Features grid */}
