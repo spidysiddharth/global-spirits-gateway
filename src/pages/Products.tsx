@@ -6,34 +6,51 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import Translate from "@/components/Translate";
-import arthausW from "@/assets/arthaus-w.png";
+// import arthausW from "@/assets/arthaus-w.png";
 import heroBg from "@/assets/hero-bg.jpg";
-import officerW from "@/assets/officers-w.png";
-import sterlingW from "@/assets/sterling-w.png";
-import iconicW from "@/assets/iconic-W.png";
-import iconicwinterW from "@/assets/iconicwinter-w.png";
-import XWW from "@/assets/X&W-w.png";
-import SrishtiW from "@/assets/srishti-w.png";
-import officerBlueW from "@/assets/officerblue-w.png";
-import officerblendedW from "@/assets/officerblended-w.png";
-import sterlingB7ColaW from "@/assets/sterlingb7-w.png";
-import sterb7W from "@/assets/sterb7-w.png";
-import officestarW from "@/assets/officestar-w.png";
-import zoyaspecialG from "@/assets/zoyaspecial-g.png";
-import zoyawatermelonG from "@/assets/zoyawatermelon-g.png";
-import zoyaespressoG from "@/assets/zoyacoffe-g.png";
-import kyronB from "@/assets/kyron-b.png";
-import officerB from "@/assets/officer-b.png";
-import sterlingB from "@/assets/sterling-b.png";
-import jollyrogerR from "@/assets/jolly-r.png";
-import officerR from "@/assets/officer-r.png";
-import class21V from "@/assets/class-v.png";
+// import officerW from "@/assets/officers-w.png";
+// import sterlingW from "@/assets/sterling-w.png";
+// import iconicW from "@/assets/iconic-W.png";
+// import iconicwinterW from "@/assets/iconicwinter-w.png";
+// import XWW from "@/assets/X&W-w.png";
+// import SrishtiW from "@/assets/srishti-w.png";
+// import officerBlueW from "@/assets/officerblue-w.png";
+// import officerblendedW from "@/assets/officerblended-w.png";
+// import sterlingB7ColaW from "@/assets/sterlingb7-w.png";
+// import sterb7W from "@/assets/sterb7-w.png";
+// import officestarW from "@/assets/officestar-w.png";
+// import zoyaspecialG from "@/assets/zoyaspecial-g.png";
+// import zoyawatermelonG from "@/assets/zoyawatermelon-g.png";
+// import zoyaespressoG from "@/assets/zoyacoffe-g.png";
+// import kyronB from "@/assets/kyron-b.png";
+// import officerB from "@/assets/officer-b.png";
+// import sterlingB from "@/assets/sterling-b.png";
+// import jollyrogerR from "@/assets/jolly-r.png";
+// import officerR from "@/assets/officer-r.png";
+// import class21V from "@/assets/class-v.png";
 import whiskeyW from "@/assets/whisky.png";
 import brandyB from "@/assets/brandy.jpg";
-import vodkaV from "@/assets/vodka.jpg";
+// import vodkaV from "@/assets/vodka.jpg";
 import rumR from "@/assets/rum2.jpg";
 import ginGG from "@/assets/ginGG.png";
 import vodkaVV from "@/assets/vodkaVV.png";
+import alexanderV from "@/alexandrion-assets/alexandervodka.png";
+import alexandrion5B from "@/alexandrion-assets/alexandrion5starbrandy.png";
+import alexandrion7B from "@/alexandrion-assets/alexandrion7starbrandy.png";
+import alexandrionOrange from "@/alexandrion-assets/alexandriongreekorange.png";
+import alexandrionCoffee from "@/alexandrion-assets/alexandrionbraziliancoffee.png";
+import brancoveanuVSOP from "@/alexandrion-assets/brancoveanuvsopbrandy.png";
+import brancoveanuXO from "@/alexandrion-assets/brancoveaanuxobrandy.png";
+import brancoveanuVS from "@/alexandrion-assets/brancoveanuvs.brandy.png";
+import carpathianW from "@/alexandrion-assets/carpathionsinglemaltwhisky.png";
+import highlandW from "@/alexandrion-assets/highlandmountainwhiskey.jpeg";
+import highlandPeatedW from "@/alexandrion-assets/highlandmountainwhiskeypeated.jpeg";
+import jaarBourbonW from "@/alexandrion-assets/singlemaltwhiskey.png";
+import jaarOlorosoW from "@/alexandrion-assets/arsinglemaltwhiskey.png";
+import jaarVinsantoW from "@/alexandrion-assets/vinsatosinglemaltwhiskey.png";
+import kreskovaV from "@/alexandrion-assets/kreskovavodka.png";
+import redBowlerW from "@/alexandrion-assets/redbowlerwhiskey.png";
+import siginiaG from "@/alexandrion-assets/singlemaltwhiskey.png";
 const categories = [
   { id: "all", name: "All Products", description: "Explore our complete collection", image: heroBg },
   { id: "whiskey", name: "Whiskey", description: "Distinguished single malts and heritage blends aged in timeless oak.", image: whiskeyW },
@@ -42,178 +59,144 @@ const categories = [
   { id: "rum", name: "Rum", description: "Golden cane spirits and rich reserves from tropical shores.", image: rumR },
   { id: "vodka", name: "Vodka", description: "Pristine spirits defined by unmatched purity and clarity.", image: vodkaVV },
 ];
-
 const products = [
   {
     id: 1,
-    name: "Sterling Reserve Blend Whisky",
-    category: "whiskey",
-    region: "France",
-    description: "Sterling Reserve Blend 10 is a harmonious blend of the finest Indian grain spirits and Scotch malts, each sourced from distinct barrel origins. This exceptional blend undergoes a chill-filtered process to achieve a perfect balance, resulting in a smooth finish and a symphony of 10 unique tasting notes.",
-    image: sterlingW,
+    name: "Alexander Vodka",
+    category: "vodka",
+    region: "Romania",
+    description: "A brand with a rich history, Alexander Vodka is defined by unmatched purity and clarity. 40% ABV. Perfect for refreshing cocktails or neat serves.",
+    image: alexanderV,
   },
   {
     id: 2,
-    name: "Kyron Premium Brandy",
+    name: "Alexandrion 5 Star Brandy",
     category: "brandy",
-    region: "France",
-    description: "Kyron Premium Brandy is a rare, matured French brandy with exotic flavors, packaged in an alluring bottle.",
-    image: kyronB,
+    region: "Romania",
+    description: "Everyday Greatness. A pleasant fruity bouquet with subtle woody notes reminiscent of delicate Mediterranean flavours. Features sweet notes of ripe grapes, licorice, and a vanilla finish.",
+    image: alexandrion5B,
   },
   {
     id: 3,
-    name: "Arthaus Collective Blended Malt Scotch Whisky",
-    category: "whiskey",
-    region: "France",
-    description: "Arthaus is a fine blend malt Scotch whisky, crafted from Speyside and Highlands single malts. The whisky features a rich palette of aromas and flavors, with notes of vanilla, citrus, honey, and dried fruit.",
-    image: arthausW,
+    name: "Alexandrion 7 Star Brandy",
+    category: "brandy",
+    region: "Romania",
+    description: "The Premium Collection. A refined spirit with a pleasant fruity bouquet and subtle woody notes. Perfect for sharing everyday greatness with friends and family.",
+    image: alexandrion7B,
   },
   {
     id: 4,
-    name: "Officer’s Choice Brandy",
-    category: "brandy",
-    region: "Japan",
-    description: "Officer’s Choice Brandy is crafted for smoothness and flavor, blended from matured grape spirit and natural ingredients.",
-    image: officerB,
+    name: "Alexandrion Greek Orange",
+    category: "brandy", // Flavored Brandy/Liqueur base
+    region: "Greece",
+    description: "The Sunshine! A flavourful variation of the original recipe, balanced with the freshness, juiciness, and sweetness of Greek oranges. Notes of copper, orange peel, and liquorice.",
+    image: alexandrionOrange,
   },
   {
     id: 5,
-    name: "Sterling Reserve Premium Cellar Brandy",
-    category: "brandy",
-    region: "England",
-    description: "Sterling Reserve Premium Cellar Brandy is a smooth blend of French grape spirits with a rich aroma and fruity notes.",
-    image: sterlingB,
+    name: "Alexandrion Brazilian Coffee",
+    category: "brandy", // Flavored Brandy/Liqueur base
+    region: "Brazil",
+    description: "The Exotic! An ingenious combination of flavorful Brazilian coffee and refined Alexandrion Original. Features sweet notes of walnut, dark chocolate, roasted coffee, and vanilla.",
+    image: alexandrionCoffee,
   },
   {
     id: 6,
-    name: "Officer’s Choice Whisky",
-    category: "whiskey",
-    region: "Portugal",
-    description: "Officer’s Choice whisky, enjoyed worldwide, celebrates modern officers who pursue passions and inspire others.",
-    image: officerW,
+    name: "Brâncoveanu V.S.O.P Vinars",
+    category: "brandy",
+    region: "Romania",
+    description: "Centuries Old Romanian Craft. Aged in oak barrels, this V.S.O.P is a testament to tradition, offering a distinguished taste profile.",
+    image: brancoveanuVSOP,
   },
   {
     id: 7,
-    name: "Iconiq White Whisky",
-    category: "whiskey",
-    region: "Portugal",
-    description: "ICONiQ White is a blend of Scotch malts, matured malt, and Indian grain spirits, aged in bourbon oak casks.",
-    image: iconicW,
+    name: "Brâncoveanu XO Noble",
+    category: "brandy",
+    region: "Romania",
+    description: "Ennobled through fire and enriched by time. A premium XO Vinars that offers a complex, velvety experience for the true connoisseur.",
+    image: brancoveanuXO,
   },
   {
     id: 8,
-    name: "ICONiQ Winter Whisky",
-    category: "whiskey",
-    region: "Portugal",
-    description: "Rich harmony of scotch malts and Indian grain spirits with cinnamon, ginger, clove, nutmeg, pepper, and cardamom.",
-    image: iconicwinterW,
+    name: "Brâncoveanu V.S.",
+    category: "brandy",
+    region: "Romania",
+    description: "Representative of the courage of youngsters. A vibrant and accessible Vinars that maintains the high standards of the Brâncoveanu craft.",
+    image: brancoveanuVS,
   },
   {
     id: 9,
-    name: "X&O Barrel",
+    name: "Carpathian Single Malt Whisky",
     category: "whiskey",
-    region: "Portugal",
-    description: "X&O is a premium blend of scotch malts and Indian grain spirits, offering a uniquely balanced taste and smooth finish. The brand name represents “Kisses and Hugs.”",
-    image: XWW,
+    region: "Romania",
+    description: "An Odyssey of Tastes. The first Romanian Single Malt Whisky, distilled and matured in the heart of the Carpathian Mountains. 46% ABV.",
+    image: carpathianW,
   },
   {
     id: 10,
-    name: "Srishti Premium Whisky",
+    name: "Highland Mountain Blended Scotch",
     category: "whiskey",
-    region: "Portugal",
-    description: "Srishti Premium Whisky blends Scotch Malts, Indian grain spirits, and curcumin for a unique expression without altering taste, aroma, or color.",
-    image: SrishtiW,
+    region: "Scotland",
+    description: "Be An Urban Highlander. A classic blended Scotch whisky delivering authentic Scottish heritage and smooth flavor.",
+    image: highlandW,
   },
   {
     id: 11,
-    name: "Officer’s Choice Blue Whisky",
+    name: "Highland Mountain Peated Scotch",
     category: "whiskey",
-    region: "India",
-    description: "Officer’s Choice Blue is a premium whisky blend with a smooth palate experience. It features a subtle fruity, leafy, peaty, and woody aroma.",
-    image: officerBlueW,
+    region: "Scotland",
+    description: "A Peated Blended Scotch Whisky for those who appreciate smoky depth and character. Be An Urban Highlander.",
+    image: highlandPeatedW,
   },
   {
     id: 12,
-    name: "Officer’s Choice Blended Scotch Whisky",
+    name: "JA.AR Bourbon Cask Single Malt",
     category: "whiskey",
-    region: "India",
-    description: "Limited-edition Officer’s Choice Blended Scotch Whisky, sweet and spicy, distilled and bottled in Scotland.",
-    image: officerblendedW,
+    region: "International",
+    description: "Alchemy Of Flavor & Fire. A multi-award winning Single Malt Whiskey aged in Bourbon casks for a rich, deep profile.",
+    image: jaarBourbonW,
   },
   {
     id: 13,
-    name: "Sterling Reserve B7 Cola Mix",
+    name: "JA.AR Oloroso Cask Single Malt",
     category: "whiskey",
-    region: "India",
-    description: "Sterling Reserve B7 Whisky Cola Mix is a new whisky-flavored product with a unique cola infusion. It maintains its whisky color even when mixed with water or soda.",
-    image: sterlingB7ColaW,
+    region: "International",
+    description: "Born Out Of Fire. An exquisite Single Malt Whiskey matured in Oloroso Sherry casks, delivering layers of complexity.",
+    image: jaarOlorosoW,
   },
   {
     id: 14,
-    name: "Sterling Reserve Blend 7 Whisky",
+    name: "JA.AR Vinsanto Cask Single Malt",
     category: "whiskey",
-    region: "India",
-    description: " Introducing the All-New Sterling Reserve B7! This enhanced blend is a masterpiece of whisky-making, meticulously crafted with imported Scotch malts aged in charred oak barrels and Indian grain spirits. Experience the pinnacle of whisky excellence!",
-    image: sterb7W,
+    region: "International",
+    description: "An Audacious Journey Into The Extraordinary. A unique Single Malt Whiskey finished in Vinsanto wine casks.",
+    image: jaarVinsantoW,
   },
   {
     id: 15,
-    name: "Officer’s Choice Star",
-    category: "whiskey",
-    region: "India",
-    description: "Officer’s Choice Star is a smooth, rich blend for everyday celebrations.",
-    image: officestarW,
+    name: "Kreskova Vodka",
+    category: "vodka",
+    region: "Romania",
+    description: "Life is better with friends and 'K'ocktails. A premium vodka ensuring purity and smoothness for every occasion.",
+    image: kreskovaV,
   },
   {
     id: 16,
-    name: "Zoya Special Batch Gin",
-    category: "gin",
+    name: "Red Bowler Scotch Whisky",
+    category: "whiskey",
     region: "Scotland",
-    description: "Zoya premium gin is a special batch Indian gin made from 100% grain and natural spirits.",
-    image: zoyaspecialG,
+    description: "Be Yourself. A bold Blended Scotch Whisky available in multiple formats, designed for those who stand out from the crowd.",
+    image: redBowlerW,
   },
   {
     id: 17,
-    name: "Zoya Watermelon Gin",
+    name: "Siginia Italian Gin",
     category: "gin",
-    region: "Scotland",
-    description: "ZOYA Watermelon Gin is a special batch flavored gin made with watermelon, grain, and natural spirits.",
-    image: zoyawatermelonG,
-  },
-  {
-    id: 18,
-    name: "Zoya Espresso Coffee Gin",
-    category: "gin",
-    region: "Scotland",
-    description: "ZOYA Espresso Coffee Gin is a special batch flavored gin with classic espresso coffee, 100% grain, natural spirits, juniper, and botanicals.",
-    image: zoyaespressoG,
-  },
-  {
-    id: 19,
-    name: "Jolly Roger Rum",
-    category: "rum",
-    region: "Scotland",
-    description: "Jolly Roger offers a flavorful blend of matured spirits, best enjoyed with friends.",
-    image: jollyrogerR,
-  },
-  {
-    id: 20,
-    name: "Officer’s Choice Rum",
-    category: "rum",
-    region: "Scotland",
-    description: "Officer’s Choice Rum has a fruity quality with sweet, heavy, and wood flavors.",
-    image: officerR,
-  },
-  {
-    id: 21,
-    name: "Class 21",
-    category: "vodka",
-    region: "Scotland",
-    description: "Class 21 is a unique grain vodka with a fresh charm, achieved through an activated carbon treatment process.",
-    image: class21V,
+    region: "Italy",
+    description: "Relive An Experience. A premium Italian Gin crafted to capture the essence of the Mediterranean. 40% ABV.",
+    image: siginiaG,
   },
 ];
-
 const Products = () => {
   const [searchParams] = useSearchParams();
   const categoryFromUrl = searchParams.get("category");
