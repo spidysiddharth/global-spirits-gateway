@@ -24,11 +24,11 @@ const contactInfo = [
     title: "Headquarter",
     details: ["#07-10, No. 77 HIGH STREET, HIGH STREET PLAZA, SINGAPORE 179433"],
   },
-  {
-    icon: Phone,
-    title: "Phone",
-    details: ["+65 8147 9303", "+971 55225 1680"],
-  },
+  // {
+  //   icon: Phone,
+  //   title: "Phone",
+  //   details: ["+65 8147 9303", "+971 55225 1680"],
+  // },
   {
     icon: Mail,
     title: "Email",

@@ -55,7 +55,7 @@ const Footer = () => {
                   partner@zeliqglobal.com
                 </a>
               </li>
-              <li>
+              {/* <li>
                 <a
                   href="tel:+65 8147 9303"
                   className="flex items-center gap-2 text-muted-foreground hover:text-primary text-sm transition-colors"
@@ -70,8 +70,8 @@ const Footer = () => {
                   <Phone className="w-4 h-4" />
                   +971 552 251 680
                 </a>
-              </li>
-              <li>
+              </li> */}
+              {/* <li>
                 <a
                   href="https://wa.me/971552251680?text=Hello%2C%20Team%20Zeliq.%20I'm%20interested%20in%20learning%20more%20about%20your%20premium%20spirits%20portfolio."
                   target="_blank"
@@ -81,7 +81,7 @@ const Footer = () => {
                   <MessageCircle className="w-4 h-4" />
                   WhatsApp
                 </a>
-              </li>
+              </li> */}
               {/* <li>
                 <a
                   href="https://linkedin.com"
