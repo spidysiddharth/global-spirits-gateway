@@ -28,7 +28,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <ScrollToTop />
-        <WhatsAppFloat />
+        {/* <WhatsAppFloat /> */}
         <BrowserRouter>
           <ScrollToTopOnNav />
           <Routes>
