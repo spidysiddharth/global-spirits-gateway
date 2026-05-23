@@ -1,5 +1,15 @@
 import { Link } from "react-router-dom";
-import { MapPin, Linkedin, Mail, Phone, MessageCircle } from "lucide-react";
+import {
+  MapPin,
+  Linkedin,
+  Mail,
+  Phone,
+  MessageCircle,
+  Facebook,
+  Youtube,
+  Instagram,
+  Twitter,
+} from "lucide-react";
 import zeliqLogo from "@/assets/zeliq-logo.jpeg";
 import Translate from "./Translate";
 
@@ -44,8 +54,47 @@ const Footer = () => {
 
           {/* Contact */}
           <div>
-            <h4 className="font-serif text-lg text-foreground mb-4"><Translate>Connect</Translate></h4>
+            <h4 className="font-serif text-lg text-foreground mb-4"><Translate>Social</Translate></h4>
+            <div className="flex items-center gap-3 mb-4">
+              <a
+                href="https://www.facebook.com/profile.php?id=61563107956507"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                className="text-muted-foreground hover:text-primary transition-colors"
+              >
+                <Facebook className="w-5 h-5" />
+              </a>
+              <a
+                href="https://www.youtube.com/@ZeliqGroup"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="YouTube"
+                className="text-muted-foreground hover:text-primary transition-colors"
+              >
+                <Youtube className="w-5 h-5" />
+              </a>
+              <a
+                href="https://www.linkedin.com/company/zeliqglobal/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                className="text-muted-foreground hover:text-primary transition-colors"
+              >
+                <Linkedin className="w-5 h-5" />
+              </a>
+              <a
+                href="https://www.instagram.com/zeliqgroup/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="text-muted-foreground hover:text-primary transition-colors"
+              >
+                <Instagram className="w-5 h-5" />
+              </a>
+            </div>
             <ul className="space-y-3">
+            <h4 className="font-serif text-lg text-foreground mb-4"><Translate>Connect</Translate></h4>
               <li>
                 <a
                   href="mailto:info@premiumspirits.sg"
@@ -55,44 +104,6 @@ const Footer = () => {
                   partner@zeliqglobal.com
                 </a>
               </li>
-              {/* <li>
-                <a
-                  href="tel:+65 8147 9303"
-                  className="flex items-center gap-2 text-muted-foreground hover:text-primary text-sm transition-colors"
-                >
-                  <Phone className="w-4 h-4" />
-                  +65 8147 9303
-                </a>
-                <a
-                  href="tel:+971552251680"
-                  className="flex items-center gap-2 text-muted-foreground hover:text-primary text-sm transition-colors"
-                >
-                  <Phone className="w-4 h-4" />
-                  +971 552 251 680
-                </a>
-              </li> */}
-              {/* <li>
-                <a
-                  href="https://wa.me/971552251680?text=Hello%2C%20Team%20Zeliq.%20I'm%20interested%20in%20learning%20more%20about%20your%20premium%20spirits%20portfolio."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-muted-foreground hover:text-primary text-sm transition-colors"
-                >
-                  <MessageCircle className="w-4 h-4" />
-                  WhatsApp
-                </a>
-              </li> */}
-              {/* <li>
-                <a
-                  href="https://linkedin.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-muted-foreground hover:text-primary text-sm transition-colors"
-                >
-                  <Linkedin className="w-4 h-4" />
-                  LinkedIn
-                </a>
-              </li> */}
             </ul>
           </div>
         </div>
