@@ -21,8 +21,13 @@ import Translate from "./Translate";
 const navLinks = [
   { name: "Home", path: "/" },
   { name: "About", path: "/about" },
-  { name: "Products", path: "/products" },
   { name: "Contact", path: "/contact" },
+];
+
+const productBrands = [
+  
+  { name: "Allied Blenders & Distillers", slug: "abd" },
+  { name: "Alexandrion", slug: "alexandrion" }
 ];
 
 const marketResearchLocations = [
@@ -55,6 +60,7 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [isMarketResearchOpen, setIsMarketResearchOpen] = useState(false);
+  const [isProductsOpen, setIsProductsOpen] = useState(false);
   const [openRegion, setOpenRegion] = useState<string | null>(null);
   const location = useLocation();
   const navigate = useNavigate();
@@ -126,6 +132,45 @@ const Navbar = () => {
               </Link>
             ))}
             
+            {/* Products Dropdown */}
+            <DropdownMenu open={isProductsOpen} onOpenChange={setIsProductsOpen}>
+              <DropdownMenuTrigger
+                className={`relative text-sm tracking-wider uppercase transition-colors hover:text-primary flex items-center gap-1 ${
+                  location.pathname === "/products" ? "text-primary" : "text-muted-foreground"
+                }`}
+                onMouseEnter={() => setIsProductsOpen(true)}
+              >
+                <Translate>Products</Translate>
+                <ChevronDown className="w-3 h-3" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent
+                className="relative text-sm tracking-wider uppercase transition-colors text-white/70"
+                onMouseEnter={() => setIsProductsOpen(true)}
+                onMouseLeave={() => setIsProductsOpen(false)}
+              >
+                <DropdownMenuItem
+                  onClick={() => {
+                    navigate("/products");
+                    setIsProductsOpen(false);
+                  }}
+                >
+                  <Translate>All Products</Translate>
+                </DropdownMenuItem>
+                <DropdownMenuSeparator />
+                {productBrands.map((brand) => (
+                  <DropdownMenuItem
+                    key={brand.slug}
+                    onClick={() => {
+                      navigate(`/products?brand=${brand.slug}`);
+                      setIsProductsOpen(false);
+                    }}
+                  >
+                    {brand.name}
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+
             {/* Market Research Dropdown */}
             <DropdownMenu open={isMarketResearchOpen} onOpenChange={setIsMarketResearchOpen}>
               <DropdownMenuTrigger 
@@ -224,6 +269,35 @@ const Navbar = () => {
                 </Link>
               ))}
               
+              {/* Products - Simple collapsible for mobile */}
+              <div className="border-t border-primary/10 pt-4">
+                <details className="group">
+                  <summary className="text-sm tracking-wider uppercase text-muted-foreground hover:text-primary flex items-center justify-between cursor-pointer py-2 list-none">
+                    <Translate>Products</Translate>
+                    <ChevronDown className="w-3 h-3 transition-transform group-open:rotate-180" />
+                  </summary>
+                  <div className="mt-2 pl-4 space-y-2">
+                    <Link
+                      to="/products"
+                      className="block text-xs uppercase text-muted-foreground hover:text-primary py-1.5 transition-colors"
+                      onClick={() => setIsMobileOpen(false)}
+                    >
+                      <Translate>All Products</Translate>
+                    </Link>
+                    {productBrands.map((brand) => (
+                      <Link
+                        key={brand.slug}
+                        to={`/products?brand=${brand.slug}`}
+                        className="block text-xs uppercase text-muted-foreground hover:text-primary py-1.5 transition-colors"
+                        onClick={() => setIsMobileOpen(false)}
+                      >
+                        {brand.name}
+                      </Link>
+                    ))}
+                  </div>
+                </details>
+              </div>
+
               {/* Market Research - Simple collapsible for mobile */}
               <div className="border-t border-primary/10 pt-4">
                 <details className="group">
