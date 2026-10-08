@@ -81,7 +81,7 @@ const AboutPreview = () => {
               ))}
             </div>
 
-            <Link to="/about">
+            <Link to="/about-us">
               <Button variant="hero" className="group">
                 <Translate>Learn More About Us</Translate>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
